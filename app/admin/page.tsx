@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 import { platformStats, platformSellers } from "@/lib/api";
 
 type Stats = {
@@ -49,154 +47,158 @@ export default function AdminDashboard() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div className="text-center py-20 text-zinc-400">Loading dashboard...</div>;
-  if (!stats) return <div className="text-center py-20 text-zinc-400">Could not load stats. Check your API connection.</div>;
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-32">
+        <div className="w-8 h-8 border-2 border-ps-orange border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!stats) {
+    return (
+      <div className="text-center py-32">
+        <div className="text-4xl mb-3">📊</div>
+        <p className="text-[#6B6B76]">Could not load stats. Check your API connection.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-zinc-900">Platform Dashboard</h1>
-        <p className="text-zinc-500 text-sm mt-1">Overview of PostShot performance</p>
+        <h1 className="font-heading text-3xl font-extrabold text-[#1A1A1F] dark:text-white tracking-tight">Dashboard</h1>
+        <p className="text-[#6B6B76] dark:text-white/40 mt-1">PostShot platform overview</p>
       </div>
 
-      {/* Revenue Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <MetricCard
+      {/* Revenue Bento Grid */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <RevenueCard
           title="Total Revenue"
           value={fmt(stats.revenue.combined_total)}
           subtitle="Credits + Commission"
-          accent="indigo"
+          icon="💰"
+          className="col-span-2 lg:col-span-1 bg-gradient-to-br from-ps-orange to-[#FF8F5E] text-white"
         />
-        <MetricCard
-          title="Today's Commission"
+        <RevenueCard
+          title="Today"
           value={fmt(stats.revenue.commission_today)}
           subtitle="5% storefront fees"
-          accent="emerald"
+          icon="📈"
+          className="bg-white dark:bg-ps-dark-card border border-ps-warm-border dark:border-white/5"
+          dark
         />
-        <MetricCard
-          title="Monthly Commission"
+        <RevenueCard
+          title="This Month"
           value={fmt(stats.revenue.commission_month)}
-          subtitle="This month"
-          accent="amber"
+          subtitle="Commission"
+          icon="📅"
+          className="bg-white dark:bg-ps-dark-card border border-ps-warm-border dark:border-white/5"
+          dark
         />
-        <MetricCard
+        <RevenueCard
           title="Credit Sales"
           value={fmt(stats.revenue.credits_total)}
           subtitle="All time"
-          accent="violet"
+          icon="🎫"
+          className="bg-white dark:bg-ps-dark-card border border-ps-warm-border dark:border-white/5"
+          dark
         />
       </div>
 
       {/* Platform Metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Total Sellers" value={stats.sellers.total} />
-        <StatCard label="Active Sellers" value={stats.sellers.active} />
-        <StatCard
-          label="Verified Sellers"
-          value={stats.sellers.verified}
-          badge={<Badge variant="outline" className="ml-2 text-amber-600 border-amber-300">Gold</Badge>}
-        />
-        <StatCard label="Total Orders" value={stats.orders} />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <MetricPill label="Total Sellers" value={stats.sellers.total} />
+        <MetricPill label="Active Sellers" value={stats.sellers.active} color="text-green-600 dark:text-green-400" />
+        <MetricPill label="Verified" value={stats.sellers.verified} color="text-amber-600 dark:text-amber-400" />
+        <MetricPill label="Total Orders" value={stats.orders} />
       </div>
 
-      <Separator />
-
-      {/* Recent Sellers */}
+      {/* Recent Sellers Table */}
       <div>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-zinc-900">Recent Sellers</h2>
-          <a href="/admin/sellers" className="text-sm text-indigo-600 hover:text-indigo-800 transition">
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="font-heading text-xl font-bold text-[#1A1A1F] dark:text-white">Recent Sellers</h2>
+          <Link href="/admin/sellers" className="text-sm text-ps-orange hover:text-ps-orange-dark font-semibold transition">
             View all →
-          </a>
+          </Link>
         </div>
-        <div className="bg-white rounded-lg border overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-zinc-50 text-zinc-500">
-              <tr>
-                <th className="text-left px-4 py-3 font-medium">Shop</th>
-                <th className="text-left px-4 py-3 font-medium">Phone</th>
-                <th className="text-right px-4 py-3 font-medium">Credits</th>
-                <th className="text-right px-4 py-3 font-medium">Revenue</th>
-                <th className="text-center px-4 py-3 font-medium">Status</th>
-                <th className="text-right px-4 py-3 font-medium">Joined</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {sellers.map((s) => (
-                <tr key={s.id} className="hover:bg-zinc-50 transition">
-                  <td className="px-4 py-3">
-                    <a href={`/admin/sellers/${s.id}`} className="font-medium text-zinc-900 hover:text-indigo-600 transition">
-                      {s.shop_name}
-                    </a>
-                    <div className="text-xs text-zinc-400">{s.shop_slug}.postshot.com</div>
-                  </td>
-                  <td className="px-4 py-3 text-zinc-600">{s.phone}</td>
-                  <td className="px-4 py-3 text-right text-zinc-600">{s.credits_balance}</td>
-                  <td className="px-4 py-3 text-right text-zinc-900 font-medium">{fmt(s.total_revenue)}</td>
-                  <td className="px-4 py-3 text-center">
-                    <div className="flex items-center justify-center gap-1">
-                      {s.is_verified && (
-                        <Badge className="bg-amber-100 text-amber-800 border-amber-300 text-xs">
-                          {s.verification_tier === "platinum" ? "✦ Platinum" : "✓ Gold"}
-                        </Badge>
-                      )}
-                      {!s.is_active && (
-                        <Badge variant="destructive" className="text-xs">Suspended</Badge>
-                      )}
-                      {s.is_active && !s.is_verified && (
-                        <span className="text-zinc-400 text-xs">Unverified</span>
-                      )}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-right text-zinc-400 text-xs">
-                    {new Date(s.created_at).toLocaleDateString()}
-                  </td>
+
+        <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 overflow-hidden shadow-warm">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-ps-warm-border dark:border-white/5">
+                  <th className="text-left px-5 py-4 font-semibold text-[#6B6B76] dark:text-white/40 text-xs uppercase tracking-wider">Shop</th>
+                  <th className="text-left px-5 py-4 font-semibold text-[#6B6B76] dark:text-white/40 text-xs uppercase tracking-wider hidden sm:table-cell">Phone</th>
+                  <th className="text-right px-5 py-4 font-semibold text-[#6B6B76] dark:text-white/40 text-xs uppercase tracking-wider">Credits</th>
+                  <th className="text-right px-5 py-4 font-semibold text-[#6B6B76] dark:text-white/40 text-xs uppercase tracking-wider">Revenue</th>
+                  <th className="text-center px-5 py-4 font-semibold text-[#6B6B76] dark:text-white/40 text-xs uppercase tracking-wider hidden md:table-cell">Status</th>
+                  <th className="text-right px-5 py-4 font-semibold text-[#6B6B76] dark:text-white/40 text-xs uppercase tracking-wider hidden lg:table-cell">Joined</th>
                 </tr>
-              ))}
-              {sellers.length === 0 && (
-                <tr><td colSpan={6} className="text-center py-8 text-zinc-400">No sellers yet</td></tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {sellers.map((s) => (
+                  <tr key={s.id} className="border-b border-ps-warm-border/50 dark:border-white/3 hover:bg-ps-warm-muted/50 dark:hover:bg-white/2 transition">
+                    <td className="px-5 py-4">
+                      <Link href={`/admin/sellers/${s.id}`} className="group">
+                        <span className="font-semibold text-[#1A1A1F] dark:text-white group-hover:text-ps-orange transition">{s.shop_name}</span>
+                        <span className="block text-xs text-[#6B6B76] dark:text-white/30 mt-0.5">postshop.vercel.app/{s.shop_slug}</span>
+                      </Link>
+                    </td>
+                    <td className="px-5 py-4 text-[#6B6B76] dark:text-white/40 hidden sm:table-cell">{s.phone}</td>
+                    <td className="px-5 py-4 text-right text-[#1A1A1F] dark:text-white font-medium">{s.credits_balance}</td>
+                    <td className="px-5 py-4 text-right font-heading font-bold text-[#1A1A1F] dark:text-white">{fmt(s.total_revenue)}</td>
+                    <td className="px-5 py-4 text-center hidden md:table-cell">
+                      {s.is_verified ? (
+                        <span className="inline-flex items-center gap-1 bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold px-2.5 py-1 rounded-full">
+                          {s.verification_tier === "platinum" ? "✦ Platinum" : "✓ Gold"}
+                        </span>
+                      ) : !s.is_active ? (
+                        <span className="inline-flex items-center bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-bold px-2.5 py-1 rounded-full">Suspended</span>
+                      ) : (
+                        <span className="text-[#6B6B76]/50 text-xs">—</span>
+                      )}
+                    </td>
+                    <td className="px-5 py-4 text-right text-[#6B6B76] dark:text-white/30 text-xs hidden lg:table-cell">
+                      {new Date(s.created_at).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+                {sellers.length === 0 && (
+                  <tr><td colSpan={6} className="text-center py-12 text-[#6B6B76]">No sellers yet</td></tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function MetricCard({ title, value, subtitle, accent }: {
-  title: string; value: string; subtitle: string; accent: string;
+function RevenueCard({ title, value, subtitle, icon, className, dark }: {
+  title: string; value: string; subtitle: string; icon: string; className: string; dark?: boolean;
 }) {
-  const colors: Record<string, string> = {
-    indigo: "from-indigo-500 to-indigo-600",
-    emerald: "from-emerald-500 to-emerald-600",
-    amber: "from-amber-500 to-amber-600",
-    violet: "from-violet-500 to-violet-600",
-  };
   return (
-    <Card className={`bg-gradient-to-br ${colors[accent]} text-white border-0`}>
-      <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-medium text-white/80">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
-        <div className="text-xs text-white/60 mt-1">{subtitle}</div>
-      </CardContent>
-    </Card>
+    <div className={`rounded-2xl p-6 shadow-warm ${className}`}>
+      <div className="flex items-center justify-between mb-3">
+        <span className={`text-sm font-medium ${dark ? "text-[#6B6B76] dark:text-white/40" : "text-white/70"}`}>{title}</span>
+        <span className="text-xl">{icon}</span>
+      </div>
+      <div className={`font-heading text-2xl sm:text-3xl font-extrabold ${dark ? "text-[#1A1A1F] dark:text-white" : ""}`}>{value}</div>
+      <div className={`text-xs mt-1.5 ${dark ? "text-[#6B6B76] dark:text-white/30" : "text-white/50"}`}>{subtitle}</div>
+    </div>
   );
 }
 
-function StatCard({ label, value, badge }: { label: string; value: number; badge?: React.ReactNode }) {
+function MetricPill({ label, value, color }: { label: string; value: number; color?: string }) {
   return (
-    <Card>
-      <CardContent className="pt-6">
-        <div className="text-sm text-zinc-500">{label}</div>
-        <div className="text-2xl font-bold text-zinc-900 mt-1 flex items-center">
-          {value.toLocaleString()}
-          {badge}
-        </div>
-      </CardContent>
-    </Card>
+    <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-5 shadow-warm">
+      <div className="text-xs font-medium text-[#6B6B76] dark:text-white/40 uppercase tracking-wider">{label}</div>
+      <div className={`font-heading text-3xl font-extrabold mt-2 ${color || "text-[#1A1A1F] dark:text-white"}`}>
+        {value.toLocaleString()}
+      </div>
+    </div>
   );
 }
