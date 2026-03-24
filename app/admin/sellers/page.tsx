@@ -98,7 +98,7 @@ export default function SellersPage() {
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-ps-orange/20 to-ps-gold/20 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-linear-to-br from-ps-orange/20 to-ps-gold/20 rounded-xl flex items-center justify-center">
                     <span className="font-heading font-bold text-ps-orange text-sm">{s.shop_name.charAt(0).toUpperCase()}</span>
                   </div>
                   <div>

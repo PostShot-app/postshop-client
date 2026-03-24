@@ -79,7 +79,7 @@ export default function AdminDashboard() {
           value={fmt(stats.revenue.combined_total)}
           subtitle="Credits + Commission"
           icon="💰"
-          className="col-span-2 lg:col-span-1 bg-gradient-to-br from-ps-orange to-[#FF8F5E] text-white"
+          className="col-span-2 lg:col-span-1 bg-linear-to-br from-ps-orange to-[#FF8F5E] text-white"
         />
         <RevenueCard
           title="Today"

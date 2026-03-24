@@ -68,7 +68,7 @@ export default function SellerDetailPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 bg-gradient-to-br from-ps-orange/20 to-ps-gold/20 rounded-2xl flex items-center justify-center shadow-warm">
+          <div className="w-14 h-14 bg-linear-to-br from-ps-orange/20 to-ps-gold/20 rounded-2xl flex items-center justify-center shadow-warm">
             <span className="font-heading text-2xl font-bold text-ps-orange">{seller.shop_name.charAt(0).toUpperCase()}</span>
           </div>
           <div>
