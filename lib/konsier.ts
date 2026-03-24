@@ -118,9 +118,10 @@ const checkOrders = Konsier.tool({
 let _konsier: Konsier | null = null;
 
 export function getKonsier(): Konsier {
-  if (!_konsier) {
+  // Always recreate if the key was missing on first init (build-time)
+  if (!_konsier || !process.env.KONSIER_API_KEY) {
     _konsier = new Konsier({
-      apiKey: process.env.KONSIER_API_KEY || "placeholder",
+      apiKey: process.env.KONSIER_API_KEY!,
       endpointUrl: `${process.env.NEXT_PUBLIC_APP_URL || "https://postshot.com"}/api/konsier`,
   agents: {
     amberlyn: {
@@ -158,7 +159,3 @@ If this seems like a new seller, welcome them warmly:
   return _konsier;
 }
 
-// Backwards compat — but use getKonsier() in route handlers
-export const konsier = typeof process !== "undefined" && process.env.KONSIER_API_KEY
-  ? getKonsier()
-  : (null as unknown as Konsier);
