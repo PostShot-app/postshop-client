@@ -1,4 +1,9 @@
-import { createKonsierRoute } from "konsier/next";
-import { konsier } from "@/lib/konsier";
+import { NextRequest } from "next/server";
 
-export const POST = createKonsierRoute(konsier);
+export async function POST(request: NextRequest) {
+  // Lazy import to avoid build-time Konsier initialization
+  const { createKonsierRoute } = await import("konsier/next");
+  const { getKonsier } = await import("@/lib/konsier");
+  const handler = createKonsierRoute(getKonsier());
+  return handler(request);
+}
