@@ -43,7 +43,7 @@ export default function Home() {
             <h1 className="animate-fade-up delay-1 font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
               Phone photo in.
               <br />
-              <span className="bg-gradient-to-r from-(--color-ps-orange) to-(--color-ps-gold) bg-clip-text text-transparent animate-shimmer">
+              <span className="bg-linear-to-r from-(--color-ps-orange) to-(--color-ps-gold) bg-clip-text text-transparent animate-shimmer">
                 Selling image out.
               </span>
             </h1>
@@ -193,7 +193,7 @@ export default function Home() {
 function StepCard({ num, title, desc, gradient }: { num: string; title: string; desc: string; gradient: string }) {
   return (
     <div className={`relative bg-white dark:bg-(--color-ps-dark-card) rounded-2xl p-8 shadow-warm hover:shadow-warm-lg transition-all duration-300 group border border-(--color-ps-warm-border) dark:border-white/5 overflow-hidden`}>
-      <div className={`absolute inset-0 bg-gradient-to-b ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 bg-linear-to-b ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
       <div className="relative">
         <span className="font-heading text-5xl font-extrabold text-(--color-ps-warm-border) dark:text-white/5 block mb-4 group-hover:text-ps-orange/20 transition-colors">{num}</span>
         <h3 className="font-heading text-xl font-bold text-[#1A1A1F] dark:text-white">{title}</h3>
