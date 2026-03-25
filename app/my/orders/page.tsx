@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 function req(path: string) {
-  const token = localStorage.getItem("seller_token") || "";
+  const token = localStorage.getItem("token") || "";
   return fetch(`${API}${path}`, { headers: { Authorization: `Bearer ${token}` } }).then((r) => r.json());
 }
 

@@ -6,7 +6,7 @@ import Link from "next/link";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 function req(path: string) {
-  const token = localStorage.getItem("seller_token") || "";
+  const token = localStorage.getItem("token") || "";
   return fetch(`${API}${path}`, {
     headers: { Authorization: `Bearer ${token}` },
   }).then((r) => r.json());
@@ -65,7 +65,9 @@ export default function SellerDashboard() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard label="Credits" value={data.credits} icon="🎫" />
+        <Link href="/my/credits" className="block">
+          <StatCard label="Credits" value={data.credits} icon="🎫" action="Top Up" />
+        </Link>
         <StatCard label="Products" value={data.products} icon="📦" />
         <StatCard label="Orders" value={data.orders} icon="🛒" />
         <StatCard label="Revenue" value={`${data.currency || "GHS"} ${((data.revenue || 0) / 100).toFixed(2)}`} icon="💰" />
@@ -94,14 +96,15 @@ export default function SellerDashboard() {
   );
 }
 
-function StatCard({ label, value, icon }: { label: string; value: string | number; icon: string }) {
+function StatCard({ label, value, icon, action }: { label: string; value: string | number; icon: string; action?: string }) {
   return (
-    <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-5 shadow-warm">
+    <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-5 shadow-warm hover:shadow-warm-lg transition">
       <div className="flex items-center justify-between">
         <span className="text-xs font-medium text-[#6B6B76] dark:text-white/40 uppercase tracking-wider">{label}</span>
         <span>{icon}</span>
       </div>
       <div className="font-heading text-2xl font-extrabold text-[#1A1A1F] dark:text-white mt-2">{value}</div>
+      {action && <span className="text-xs text-ps-orange font-semibold mt-1 inline-block">{action} →</span>}
     </div>
   );
 }

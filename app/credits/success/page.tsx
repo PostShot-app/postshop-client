@@ -32,10 +32,10 @@ function SuccessContent() {
             Back to Amberlyn
           </a>
           <Link
-            href="/"
+            href="/my"
             className="block w-full h-10 border border-white/10 text-white/40 font-medium rounded-xl flex items-center justify-center hover:text-white hover:bg-white/5 transition"
           >
-            Back to PostShop
+            Back to My Shop
           </Link>
         </div>
       </div>

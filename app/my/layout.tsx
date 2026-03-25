@@ -11,12 +11,12 @@ export default function SellerLayout({ children }: { children: React.ReactNode }
   const [ready, setReady] = useState(false);
   const [shopName, setShopName] = useState("");
 
-  const isLoginPage = pathname === "/my/login";
+  const isPublicPage = pathname === "/my/login" || pathname === "/my/auth";
 
   useEffect(() => {
-    if (isLoginPage) { setReady(true); return; }
-    const token = localStorage.getItem("seller_token");
-    const seller = localStorage.getItem("seller_data");
+    if (isPublicPage) { setReady(true); return; }
+    const token = localStorage.getItem("token");
+    const seller = localStorage.getItem("seller");
     if (!token) {
       router.replace("/my/login");
     } else {
@@ -25,9 +25,9 @@ export default function SellerLayout({ children }: { children: React.ReactNode }
       }
       setReady(true);
     }
-  }, [isLoginPage, router]);
+  }, [isPublicPage, router]);
 
-  if (isLoginPage) return <>{children}</>;
+  if (isPublicPage) return <>{children}</>;
   if (!ready) return null;
 
   return (
