@@ -57,8 +57,8 @@ export default function SellerLoginPage() {
         <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-6 shadow-warm">
           {step === "phone" ? (
             <>
-              <label className="block text-sm font-medium text-[#1A1A1F] dark:text-white mb-2">Your phone number</label>
-              <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="e.g. 0241234567"
+              <label className="block text-sm font-medium text-[#1A1A1F] dark:text-white mb-2">Telegram username or phone</label>
+              <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="e.g. feel_the_agi or 0241234567"
                 className="w-full h-12 px-4 rounded-xl bg-ps-warm-muted dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/50 focus:ring-2 focus:ring-ps-orange/30 focus:border-ps-orange outline-none transition" />
               {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               <button onClick={handleRequestOTP} disabled={loading || !phone}
