@@ -1,7 +1,39 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [ready, setReady] = useState(false);
+
+  const isLoginPage = pathname === "/admin/login";
+
+  useEffect(() => {
+    if (isLoginPage) {
+      setReady(true);
+      return;
+    }
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.replace("/admin/login");
+    } else {
+      setReady(true);
+    }
+  }, [isLoginPage, router]);
+
+  if (isLoginPage) return <>{children}</>;
+  if (!ready) return null;
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("seller");
+    router.replace("/admin/login");
+  };
+
   return (
     <div className="min-h-screen bg-ps-warm-white dark:bg-ps-dark">
       <nav className="sticky top-0 z-50 bg-white/80 dark:bg-ps-dark-card/80 backdrop-blur-xl border-b border-ps-warm-border dark:border-white/5">
@@ -14,8 +46,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </span>
           </Link>
           <div className="flex items-center gap-1">
-            <NavLink href="/admin">Dashboard</NavLink>
-            <NavLink href="/admin/sellers">Sellers</NavLink>
+            <NavLink href="/admin" active={pathname === "/admin"}>Dashboard</NavLink>
+            <NavLink href="/admin/sellers" active={pathname?.startsWith("/admin/sellers") || false}>Sellers</NavLink>
+            <NavLink href="/admin/escalations" active={pathname === "/admin/escalations"}>Requests</NavLink>
+            <button
+              onClick={handleLogout}
+              className="text-sm font-medium text-[#6B6B76] dark:text-white/30 hover:text-red-500 dark:hover:text-red-400 px-3 py-2 rounded-lg transition ml-2"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </nav>
@@ -24,11 +63,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({ href, children, active }: { href: string; children: React.ReactNode; active: boolean }) {
   return (
     <Link
       href={href}
-      className="text-sm font-medium text-[#6B6B76] dark:text-white/50 hover:text-[#1A1A1F] dark:hover:text-white hover:bg-ps-warm-muted dark:hover:bg-white/5 px-4 py-2 rounded-lg transition"
+      className={`text-sm font-medium px-4 py-2 rounded-lg transition ${
+        active
+          ? "bg-ps-orange/10 text-ps-orange"
+          : "text-[#6B6B76] dark:text-white/50 hover:text-[#1A1A1F] dark:hover:text-white hover:bg-ps-warm-muted dark:hover:bg-white/5"
+      }`}
     >
       {children}
     </Link>
