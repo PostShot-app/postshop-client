@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { shopInfo, shopProducts } from "@/lib/api";
+import { getCart } from "@/lib/cart";
 
 type Shop = { shop_name: string; slug: string };
 type Product = {
