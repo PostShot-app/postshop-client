@@ -44,13 +44,13 @@ export default function OrderConfirmedPage() {
             href="/"
             className="w-full py-3 rounded-xl bg-ps-warm-muted dark:bg-white/5 text-[#1A1A1F] dark:text-white font-medium text-center hover:bg-ps-warm-border dark:hover:bg-white/10 transition"
           >
-            Back to PostShot
+            Back to PostShop
           </Link>
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-2 text-xs text-[#6B6B76] dark:text-white/30">
-          <Image src="/logo.png" alt="PostShot" width={16} height={16} className="rounded" />
-          Powered by PostShot
+          <Image src="/logo.png" alt="PostShop" width={16} height={16} className="rounded" />
+          Powered by PostShop
         </div>
       </div>
     </div>

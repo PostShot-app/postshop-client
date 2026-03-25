@@ -40,7 +40,7 @@ export default function ProductPage() {
         product_id: product.id,
         name: form.name || "Customer",
         phone: form.phone,
-        email: form.email || "buyer@postshot.com",
+        email: form.email || "buyer@postshop.com",
         address: form.address,
         quantity: 1,
       });

@@ -20,11 +20,11 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PostShot — AI Product Photography",
+  title: "PostShop — AI Product Photography",
   description:
     "Turn phone photos into professional product images. Send a photo on WhatsApp or Telegram, get back a stunning lifestyle shot + ad copy. Your free online shop is created automatically.",
   openGraph: {
-    title: "PostShot — AI Product Photography",
+    title: "PostShop — AI Product Photography",
     description: "Turn phone photos into professional product images.",
     type: "website",
   },

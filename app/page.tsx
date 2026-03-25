@@ -8,15 +8,15 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-ps-dark/90 border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="PostShot" width={28} height={28} className="rounded-lg" />
-            <span className="font-heading font-bold text-lg text-white">PostShot</span>
+            <Image src="/logo.png" alt="PostShop" width={28} height={28} className="rounded-lg" />
+            <span className="font-heading font-bold text-lg text-white">PostShop</span>
           </div>
           <div className="flex items-center gap-5">
             <a href="#how" className="text-sm text-white/60 hover:text-white transition hidden sm:block">How it works</a>
             <a href="#pricing" className="text-sm text-white/60 hover:text-white transition hidden sm:block">Pricing</a>
             <Link href="/admin" className="text-sm text-white/60 hover:text-white transition hidden sm:block">Dashboard</Link>
             <a
-              href="https://t.me/postshotai_bot"
+              href="https://t.me/postshopai_bot"
               className="bg-(--color-ps-orange) text-white text-sm px-5 py-2 rounded-full font-semibold hover:bg-(--color-ps-orange-dark) transition glow-orange"
             >
               Start Free
@@ -55,7 +55,7 @@ export default function Home() {
 
             <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-4 mt-10">
               <a
-                href="https://t.me/postshotai_bot"
+                href="https://t.me/postshopai_bot"
                 className="group relative bg-(--color-ps-orange) text-white px-8 py-4 rounded-full text-base font-bold hover:bg-(--color-ps-orange-dark) transition-all glow-orange flex items-center justify-center gap-2"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.65-2.89 7.99-3.45 3.81-1.6 4.6-1.87 5.12-1.88.11 0 .37.03.53.17.14.12.18.28.2.45-.01.06.01.24 0 .38z"/></svg>
@@ -160,7 +160,7 @@ export default function Home() {
             Join sellers turning WhatsApp photos into professional selling machines.
           </p>
           <a
-            href="https://t.me/postshotai_bot"
+            href="https://t.me/postshopai_bot"
             className="inline-flex items-center gap-2 mt-8 bg-(--color-ps-orange) text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-(--color-ps-orange-dark) transition-all glow-orange"
           >
             Start Free on Telegram
@@ -174,8 +174,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              <Image src="/logo.png" alt="PostShot" width={24} height={24} className="rounded-lg" />
-              <span className="font-heading font-bold text-white/80">PostShot</span>
+              <Image src="/logo.png" alt="PostShop" width={24} height={24} className="rounded-lg" />
+              <span className="font-heading font-bold text-white/80">PostShop</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/30">
               <a href="#how" className="hover:text-white/60 transition">How it works</a>
@@ -223,7 +223,7 @@ function PriceCard({ name, credits, price, per, popular }: {
         {credits} credits &middot; {per}/image
       </p>
       <a
-        href="https://t.me/postshotai_bot"
+        href="https://t.me/postshopai_bot"
         className={`mt-6 block py-3 rounded-xl font-semibold text-sm text-center transition-all ${
           popular
             ? "bg-(--color-ps-orange) text-white hover:bg-(--color-ps-orange-dark) glow-orange"

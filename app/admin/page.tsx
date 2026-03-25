@@ -69,7 +69,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <div>
         <h1 className="font-heading text-3xl font-extrabold text-[#1A1A1F] dark:text-white tracking-tight">Dashboard</h1>
-        <p className="text-[#6B6B76] dark:text-white/40 mt-1">PostShot platform overview</p>
+        <p className="text-[#6B6B76] dark:text-white/40 mt-1">PostShop platform overview</p>
       </div>
 
       {/* Revenue Bento Grid */}
