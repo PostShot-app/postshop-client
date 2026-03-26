@@ -6,19 +6,17 @@ export default function Home() {
     <div className="min-h-screen bg-ps-dark">
       {/* Nav — crisp floating bar */}
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl">
-        <div className="flex items-center justify-between h-12 px-5 rounded-2xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.06]">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Image src="/logo.png" alt="PostMall" width={22} height={22} className="rounded-md" />
-              <span className="font-heading font-bold text-white text-sm">PostMall</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-1">
-              <a href="#how" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Product</a>
-              <a href="#pricing" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Pricing</a>
-              <a href="#features" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Features</a>
-            </div>
-          </div>
+        <div className="grid grid-cols-3 items-center h-12 px-5 rounded-2xl bg-white/3 backdrop-blur-2xl border border-white/6">
           <div className="flex items-center gap-2">
+            <Image src="/logo.png" alt="PostMall" width={22} height={22} className="rounded-md" />
+            <span className="font-heading font-bold text-white text-sm">PostMall</span>
+          </div>
+          <div className="hidden sm:flex items-center justify-center gap-1">
+            <a href="#how" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Product</a>
+            <a href="#pricing" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Pricing</a>
+            <a href="#features" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Features</a>
+          </div>
+          <div className="flex items-center justify-end">
             <a href="https://t.me/postshotai_bot"
               className="bg-ps-orange text-white text-xs px-4 py-1.5 rounded-xl font-semibold hover:bg-ps-orange-dark transition">
               Meet Amberlyn
@@ -80,15 +78,15 @@ export default function Home() {
 
         {/* Floating social proof bar — embossed, sits at bottom of hero */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-3xl animate-fade-up delay-5">
-          <div className="flex items-center justify-center gap-6 sm:gap-10 px-6 py-3 rounded-2xl bg-white/[0.02] border border-white/[0.04] backdrop-blur-sm">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 px-6 py-3 rounded-2xl bg-white/2 border border-white/4 backdrop-blur-sm">
             <span className="text-[11px] sm:text-xs font-medium tracking-wide uppercase" style={{color: 'rgba(255,255,255,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.05)'}}>
               Ghana &middot; Nigeria &middot; Kenya
             </span>
-            <span className="w-px h-3 bg-white/[0.06]" />
+            <span className="w-px h-3 bg-white/6" />
             <span className="text-[11px] sm:text-xs font-medium tracking-wide uppercase" style={{color: 'rgba(255,255,255,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.05)'}}>
               WhatsApp + Telegram
             </span>
-            <span className="w-px h-3 bg-white/[0.06] hidden sm:block" />
+            <span className="w-px h-3 bg-white/6 hidden sm:block" />
             <span className="text-[11px] sm:text-xs font-medium tracking-wide uppercase hidden sm:block" style={{color: 'rgba(255,255,255,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.05)'}}>
               MoMo &middot; Card &middot; Bank
             </span>
