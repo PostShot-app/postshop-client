@@ -19,7 +19,7 @@ export default function Home() {
           <div className="flex items-center justify-end">
             <a href="https://t.me/postshotai_bot"
               className="bg-ps-orange text-white text-xs px-4 py-1.5 rounded-xl font-semibold hover:bg-ps-orange-dark transition">
-              Meet Amberlyn
+              Open Free Shop
             </a>
           </div>
         </div>
@@ -75,16 +75,25 @@ export default function Home() {
             </p>
           </div>
 
-          {/* iPhone mockup — right side */}
-          <div className="hidden lg:block animate-fade-up delay-3 shrink-0">
-            <div className="relative">
-              <img
-                src="/hero-iphone.png"
-                alt="Amberlyn AI assistant on iPhone"
-                className="w-72 xl:w-80 drop-shadow-2xl"
-              />
-              {/* Glow behind the phone */}
-              <div className="absolute inset-0 -z-10 bg-ps-orange/10 rounded-full blur-[80px] scale-75" />
+          {/* Device mockups — iPhone + Android */}
+          <div className="hidden lg:flex items-end gap-4 animate-fade-up delay-3 shrink-0 -mr-8">
+            {/* Glow behind phones */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-ps-orange/8 rounded-full blur-[100px]" />
+
+            {/* iPhone frame */}
+            <div className="relative z-10 w-56 xl:w-60">
+              <div className="rounded-[2.5rem] border-[6px] border-[#2A2A2E] bg-[#2A2A2E] shadow-2xl overflow-hidden">
+                {/* Notch */}
+                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#2A2A2E] rounded-b-2xl z-20" />
+                <img src="/screen-1.png" alt="Amberlyn on iPhone" className="w-full rounded-[2rem]" />
+              </div>
+            </div>
+
+            {/* Android frame — slightly behind and offset */}
+            <div className="relative -ml-12 mb-8 w-52 xl:w-56 opacity-90">
+              <div className="rounded-[1.8rem] border-[5px] border-[#1E1E22] bg-[#1E1E22] shadow-xl overflow-hidden">
+                <img src="/screen-2.png" alt="Amberlyn on Android" className="w-full rounded-[1.5rem]" />
+              </div>
             </div>
           </div>
         </div>
@@ -176,9 +185,9 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <PriceCard name="Starter" credits={10} price="GHS 84" per="GHS 8.40" />
-            <PriceCard name="Pro" credits={30} price="GHS 216" per="GHS 7.20" popular />
-            <PriceCard name="Business" credits={100} price="GHS 600" per="GHS 6.00" />
+            <PriceCard name="Starter" credits={10} price="GHS 100" per="GHS 10" />
+            <PriceCard name="Pro" credits={30} price="GHS 250" per="GHS 8.33" popular />
+            <PriceCard name="Business" credits={100} price="GHS 700" per="GHS 7" />
           </div>
 
           <p className="text-center text-sm text-white/30 mt-8">
@@ -202,7 +211,7 @@ export default function Home() {
             href="https://t.me/postshotai_bot"
             className="inline-flex items-center gap-2 mt-8 bg-ps-orange text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-ps-orange-dark transition-all glow-orange"
           >
-            Meet Amberlyn
+            Open Your Free Shop
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
