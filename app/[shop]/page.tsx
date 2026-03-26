@@ -252,14 +252,22 @@ export default function StorefrontPage() {
                   {/* Quantity */}
                   <div className="flex items-center gap-3">
                     <div className="flex items-center bg-white/5 rounded-xl border border-white/10">
-                      <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-10 h-10 text-white/50 hover:text-white text-lg">−</button>
+                      <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-10 h-10 text-white/50 hover:text-white text-lg cursor-pointer">−</button>
                       <span className="w-10 text-center font-bold text-white">{qty}</span>
-                      <button onClick={() => setQty(qty + 1)} className="w-10 h-10 text-white/50 hover:text-white text-lg">+</button>
+                      <button onClick={() => {
+                        if (selectedProduct.stock !== null && qty >= selectedProduct.stock) return;
+                        setQty(qty + 1);
+                      }} className={`w-10 h-10 text-lg cursor-pointer ${
+                        selectedProduct.stock !== null && qty >= selectedProduct.stock ? "text-white/10" : "text-white/50 hover:text-white"
+                      }`}>+</button>
                     </div>
                     <span className="text-sm text-white/20">
                       {selectedProduct.currency} {((selectedProduct.price * qty) / 100).toLocaleString("en", { minimumFractionDigits: 2 })}
                     </span>
                   </div>
+                  {selectedProduct.stock !== null && qty >= selectedProduct.stock && (
+                    <p className="text-xs text-amber-400/80">That&apos;s all we have in stock ({selectedProduct.stock} available)</p>
+                  )}
 
                   {/* Add to cart */}
                   <button onClick={() => handleQuickAdd(selectedProduct)}

@@ -42,6 +42,7 @@ export default function SellerLayout({ children }: { children: React.ReactNode }
             <NavLink href="/my" active={pathname === "/my"}>Overview</NavLink>
             <NavLink href="/my/products" active={pathname === "/my/products"}>Products</NavLink>
             <NavLink href="/my/orders" active={pathname === "/my/orders"}>Orders</NavLink>
+            <NavLink href="/my/settings" active={pathname === "/my/settings"}>Settings</NavLink>
           </div>
         </div>
       </nav>

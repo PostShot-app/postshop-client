@@ -185,7 +185,7 @@ export default function MyProductsPage() {
                       {p.price ? `${p.currency} ${(p.price / 100).toFixed(2)}` : "No price"}
                     </span>
                     <button onClick={() => startEdit(p)}
-                      className="text-xs text-ps-orange font-semibold hover:underline">
+                      className="text-xs text-ps-orange font-semibold hover:underline cursor-pointer">
                       Edit
                     </button>
                   </div>
