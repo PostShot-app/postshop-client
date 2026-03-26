@@ -76,9 +76,15 @@ export default function MyOrdersPage() {
                   </span>
                 </div>
               </div>
-              <p className="text-xs text-[#6B6B76] dark:text-white/20 mt-3">
-                {new Date(o.created_at).toLocaleString()}
-              </p>
+              <div className="flex items-center justify-between mt-3">
+                <p className="text-xs text-[#6B6B76] dark:text-white/20">
+                  {new Date(o.created_at).toLocaleString()}
+                </p>
+                <a href={`/my/invoice/${o.id}`} target="_blank" rel="noreferrer"
+                  className="text-xs text-ps-orange font-semibold hover:underline cursor-pointer">
+                  View Invoice
+                </a>
+              </div>
             </div>
           ))}
         </div>
