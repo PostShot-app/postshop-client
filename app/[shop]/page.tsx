@@ -120,7 +120,7 @@ export default function StorefrontPage() {
             )}
             <span className="font-heading font-bold text-white hidden sm:block">
               {shop.shop_name}
-              {shop.is_verified && <span className="ml-1 text-xs" title="Verified">✓</span>}
+              {shop.is_verified && <img src="/verified.png" alt="Verified" className="inline w-4 h-4 ml-1" title="Verified" />}
             </span>
           </div>
 

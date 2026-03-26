@@ -151,11 +151,12 @@ export default function AdminDashboard() {
                     <td className="px-5 py-4 text-right font-heading font-bold text-white">{fmt(s.total_revenue)}</td>
                     <td className="px-5 py-4 text-center hidden md:table-cell">
                       {s.is_verified ? (
-                        <span className="inline-flex items-center gap-1 bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold px-2.5 py-1 rounded-full">
-                          {s.verification_tier === "platinum" ? "✦ Platinum" : "✓ Gold"}
+                        <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-full">
+                          <img src="/verified.png" alt="" className="w-3.5 h-3.5" />
+                          {s.verification_tier === "platinum" ? "Platinum" : "Gold"}
                         </span>
                       ) : !s.is_active ? (
-                        <span className="inline-flex items-center bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-bold px-2.5 py-1 rounded-full">Suspended</span>
+                        <span className="inline-flex items-center bg-red-500/10 text-red-400 text-xs font-bold px-2.5 py-1 rounded-full">Suspended</span>
                       ) : (
                         <span className="text-white/40/50 text-xs">—</span>
                       )}
