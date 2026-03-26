@@ -19,7 +19,7 @@ export default function AdminLoginPage() {
       const res = await fetch(`${API}/api/auth/admin-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key }),
+        body: JSON.stringify({ key: key.trim() }),
       });
       if (!res.ok) throw new Error("Invalid admin key");
       const data = await res.json();
