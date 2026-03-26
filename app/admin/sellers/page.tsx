@@ -51,30 +51,30 @@ export default function SellersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-heading text-3xl font-extrabold text-[#1A1A1F] dark:text-white tracking-tight">Sellers</h1>
-        <p className="text-[#6B6B76] dark:text-white/40 mt-1">Manage and verify seller accounts</p>
+        <h1 className="font-heading text-3xl font-extrabold text-white tracking-tight">Sellers</h1>
+        <p className="text-white/40 mt-1">Manage and verify seller accounts</p>
       </div>
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
         <div className="relative flex-1 max-w-sm">
-          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B6B76]/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input
             placeholder="Search by name or phone..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-xl bg-white dark:bg-ps-dark-card border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/50 focus:ring-2 focus:ring-ps-orange/30 focus:border-ps-orange outline-none transition"
+            className="w-full h-11 pl-10 pr-4 rounded-xl bg-ps-dark-card dark:bg-ps-dark-card border border-white/10 text-sm text-white placeholder:text-white/40/50 focus:ring-2 focus:ring-ps-orange/30 focus:border-ps-orange outline-none transition"
           />
         </div>
-        <div className="flex gap-1 bg-ps-warm-muted dark:bg-white/5 p-1 rounded-xl">
+        <div className="flex gap-1 bg-white/5 p-1 rounded-xl">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
               className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition ${
                 filter === f
-                  ? "bg-white dark:bg-ps-dark-card text-[#1A1A1F] dark:text-white shadow-sm"
-                  : "text-[#6B6B76] dark:text-white/40 hover:text-[#1A1A1F] dark:hover:text-white"
+                  ? "bg-ps-dark-card dark:bg-ps-dark-card text-white shadow-sm"
+                  : "text-white/40 hover:text-white dark:hover:text-white"
               }`}
             >
               {f}
@@ -93,7 +93,7 @@ export default function SellersPage() {
           {filtered.map((s, i) => (
             <div
               key={s.id}
-              className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-6 shadow-warm hover:shadow-warm-lg transition-all duration-300 animate-fade-up"
+              className="bg-ps-dark-card dark:bg-ps-dark-card rounded-2xl border border-white/5 dark:border-white/5 p-6 shadow-warm hover:shadow-warm-lg transition-all duration-300 animate-fade-up"
               style={{ animationDelay: `${i * 30}ms` }}
             >
               <div className="flex items-start justify-between">
@@ -103,14 +103,14 @@ export default function SellersPage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h3 className="font-semibold text-[#1A1A1F] dark:text-white">{s.shop_name}</h3>
+                      <h3 className="font-semibold text-white">{s.shop_name}</h3>
                       {s.is_verified && (
                         <span className="text-amber-500 text-xs" title={`${s.verification_tier} verified`}>
                           {s.verification_tier === "platinum" ? "✦" : "✓"}
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-[#6B6B76] dark:text-white/30 mt-0.5">{s.phone}</p>
+                    <p className="text-xs text-white/40 dark:text-white/30 mt-0.5">{s.phone}</p>
                   </div>
                 </div>
                 {!s.is_active && (
@@ -118,29 +118,29 @@ export default function SellersPage() {
                 )}
               </div>
 
-              <div className="grid grid-cols-3 gap-3 mt-5 bg-ps-warm-muted/50 dark:bg-white/3 rounded-xl p-3">
+              <div className="grid grid-cols-3 gap-3 mt-5 bg-white/3 rounded-xl p-3">
                 <div className="text-center">
-                  <div className="font-heading text-lg font-extrabold text-[#1A1A1F] dark:text-white">{s.total_orders}</div>
-                  <div className="text-[10px] text-[#6B6B76] dark:text-white/30 font-medium uppercase tracking-wider">Orders</div>
+                  <div className="font-heading text-lg font-extrabold text-white">{s.total_orders}</div>
+                  <div className="text-[10px] text-white/40 dark:text-white/30 font-medium uppercase tracking-wider">Orders</div>
                 </div>
-                <div className="text-center border-x border-ps-warm-border/50 dark:border-white/5">
-                  <div className="font-heading text-lg font-extrabold text-[#1A1A1F] dark:text-white">{fmt(s.total_revenue)}</div>
-                  <div className="text-[10px] text-[#6B6B76] dark:text-white/30 font-medium uppercase tracking-wider">Revenue</div>
+                <div className="text-center border-x border-white/5/50 dark:border-white/5">
+                  <div className="font-heading text-lg font-extrabold text-white">{fmt(s.total_revenue)}</div>
+                  <div className="text-[10px] text-white/40 dark:text-white/30 font-medium uppercase tracking-wider">Revenue</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-heading text-lg font-extrabold text-[#1A1A1F] dark:text-white">{s.credits_balance}</div>
-                  <div className="text-[10px] text-[#6B6B76] dark:text-white/30 font-medium uppercase tracking-wider">Credits</div>
+                  <div className="font-heading text-lg font-extrabold text-white">{s.credits_balance}</div>
+                  <div className="text-[10px] text-white/40 dark:text-white/30 font-medium uppercase tracking-wider">Credits</div>
                 </div>
               </div>
 
               <div className="flex gap-2 mt-4">
                 <Link href={`/admin/sellers/${s.id}`} className="flex-1">
-                  <button className="w-full h-10 rounded-xl bg-ps-warm-muted dark:bg-white/5 text-[#1A1A1F] dark:text-white text-sm font-medium hover:bg-ps-warm-border dark:hover:bg-white/10 transition">
+                  <button className="w-full h-10 rounded-xl bg-white/5 text-white text-sm font-medium hover:bg-white/5 transition">
                     View
                   </button>
                 </Link>
                 {s.is_verified ? (
-                  <button onClick={() => handleUnverify(s.id)} className="h-10 px-3 rounded-xl border border-ps-warm-border dark:border-white/10 text-[#6B6B76] text-sm hover:bg-ps-warm-muted dark:hover:bg-white/5 transition">
+                  <button onClick={() => handleUnverify(s.id)} className="h-10 px-3 rounded-xl border border-white/10 text-white/40 text-sm hover:bg-white/5 transition">
                     Unverify
                   </button>
                 ) : (
@@ -164,7 +164,7 @@ export default function SellersPage() {
           {filtered.length === 0 && (
             <div className="col-span-full text-center py-16">
               <div className="text-4xl mb-3">🔍</div>
-              <p className="text-[#6B6B76]">No sellers found</p>
+              <p className="text-white/40">No sellers found</p>
             </div>
           )}
         </div>

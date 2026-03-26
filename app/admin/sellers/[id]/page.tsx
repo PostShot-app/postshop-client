@@ -51,7 +51,7 @@ export default function SellerDetailPage() {
     return (
       <div className="text-center py-32">
         <div className="text-4xl mb-3">🔍</div>
-        <p className="text-[#6B6B76]">Seller not found</p>
+        <p className="text-white/40">Seller not found</p>
         <Link href="/admin/sellers" className="text-ps-orange font-semibold mt-3 inline-block hover:underline">Back to sellers</Link>
       </div>
     );
@@ -60,7 +60,7 @@ export default function SellerDetailPage() {
   return (
     <div className="space-y-8 animate-fade-up">
       {/* Back link */}
-      <Link href="/admin/sellers" className="inline-flex items-center gap-2 text-sm text-[#6B6B76] hover:text-ps-orange transition font-medium">
+      <Link href="/admin/sellers" className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-ps-orange transition font-medium">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         All sellers
       </Link>
@@ -73,7 +73,7 @@ export default function SellerDetailPage() {
           </div>
           <div>
             <div className="flex items-center gap-2.5">
-              <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#1A1A1F] dark:text-white tracking-tight">{seller.shop_name}</h1>
+              <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white dark:text-white tracking-tight">{seller.shop_name}</h1>
               {seller.is_verified && (
                 <span className="inline-flex items-center gap-1 bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full">
                   {seller.verification_tier === "platinum" ? "✦ Platinum" : "✓ Gold"}
@@ -83,7 +83,7 @@ export default function SellerDetailPage() {
                 <span className="bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-bold px-3 py-1.5 rounded-full">Suspended</span>
               )}
             </div>
-            <p className="text-[#6B6B76] dark:text-white/30 mt-0.5 text-sm">postshop.vercel.app/{seller.shop_slug}</p>
+            <p className="text-white/40 dark:text-white/30 mt-0.5 text-sm">postshop.vercel.app/{seller.shop_slug}</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function SellerDetailPage() {
         <div className="flex flex-wrap gap-2">
           {seller.is_verified ? (
             <button onClick={async () => { await unverifySeller(seller.id); load(); }}
-              className="h-10 px-4 rounded-xl border border-ps-warm-border dark:border-white/10 text-[#6B6B76] text-sm font-medium hover:bg-ps-warm-muted dark:hover:bg-white/5 transition">
+              className="h-10 px-4 rounded-xl border border-white/5 dark:border-white/10 text-white/40 text-sm font-medium hover:bg-white/5 dark:hover:bg-ps-dark-card/5 transition">
               Remove Verification
             </button>
           ) : (
@@ -125,20 +125,20 @@ export default function SellerDetailPage() {
           { label: "Revenue", value: fmt(seller.total_revenue), icon: "💰" },
           { label: "Credits", value: seller.credits_balance, icon: "🎫" },
         ].map((stat) => (
-          <div key={stat.label} className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-5 shadow-warm">
+          <div key={stat.label} className="bg-ps-dark-card dark:bg-ps-dark-card rounded-2xl border border-white/5 dark:border-white/5 p-5 shadow-warm">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-[#6B6B76] dark:text-white/40 uppercase tracking-wider">{stat.label}</span>
+              <span className="text-xs font-medium text-white/40 dark:text-white/40 uppercase tracking-wider">{stat.label}</span>
               <span>{stat.icon}</span>
             </div>
-            <div className="font-heading text-3xl font-extrabold text-[#1A1A1F] dark:text-white mt-2">{stat.value}</div>
+            <div className="font-heading text-3xl font-extrabold text-white dark:text-white mt-2">{stat.value}</div>
           </div>
         ))}
       </div>
 
       {/* Seller Info */}
-      <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 shadow-warm overflow-hidden">
-        <div className="px-6 py-4 border-b border-ps-warm-border dark:border-white/5">
-          <h2 className="font-heading text-lg font-bold text-[#1A1A1F] dark:text-white">Seller Info</h2>
+      <div className="bg-ps-dark-card dark:bg-ps-dark-card rounded-2xl border border-white/5 dark:border-white/5 shadow-warm overflow-hidden">
+        <div className="px-6 py-4 border-b border-white/5 dark:border-white/5">
+          <h2 className="font-heading text-lg font-bold text-white dark:text-white">Seller Info</h2>
         </div>
         <div className="divide-y divide-ps-warm-border/50 dark:divide-white/5">
           {[
@@ -155,8 +155,8 @@ export default function SellerDetailPage() {
             { label: "Joined", value: new Date(seller.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) },
           ].map((row) => (
             <div key={row.label} className="flex items-center justify-between px-6 py-4">
-              <span className="text-sm text-[#6B6B76] dark:text-white/40">{row.label}</span>
-              <span className="text-sm font-medium text-[#1A1A1F] dark:text-white">{row.value}</span>
+              <span className="text-sm text-white/40 dark:text-white/40">{row.label}</span>
+              <span className="text-sm font-medium text-white dark:text-white">{row.value}</span>
             </div>
           ))}
         </div>
