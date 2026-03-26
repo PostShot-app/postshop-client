@@ -152,7 +152,7 @@ export default function AdminDashboard() {
                     <td className="px-5 py-4 text-center hidden md:table-cell">
                       {s.is_verified ? (
                         <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-full">
-                          <img src="/verified.png" alt="" className="w-3.5 h-3.5" />
+                          <img src="/verified.png" alt="" className="w-5 h-5" />
                           {s.verification_tier === "platinum" ? "Platinum" : "Gold"}
                         </span>
                       ) : !s.is_active ? (

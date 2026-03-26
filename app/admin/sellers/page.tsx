@@ -105,7 +105,7 @@ export default function SellersPage() {
                     <div className="flex items-center gap-1.5">
                       <h3 className="font-semibold text-white">{s.shop_name}</h3>
                       {s.is_verified && (
-                        <img src="/verified.png" alt="Verified" className="w-4 h-4" title={`${s.verification_tier} verified`} />
+                        <img src="/verified.png" alt="Verified" className="w-5 h-5" title={`${s.verification_tier} verified`} />
                       )}
                     </div>
                     <p className="text-xs text-white/40 dark:text-white/30 mt-0.5">{s.phone}</p>
