@@ -17,7 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       setReady(true);
       return;
     }
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("admin_token");
     if (!token) {
       router.replace("/admin/login");
     } else {
@@ -29,8 +29,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (!ready) return null;
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("seller");
+    localStorage.removeItem("admin_token");
     router.replace("/admin/login");
   };
 

@@ -49,7 +49,7 @@ export default function AdminLoginPage() {
         throw new Error(data.detail || "Invalid code");
       }
       const data = await res.json();
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("admin_token", data.token);
       localStorage.setItem("seller", JSON.stringify(data.seller));
       router.push("/admin");
     } catch (e: unknown) {
@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
       });
       if (!res.ok) throw new Error("Invalid admin key");
       const data = await res.json();
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("admin_token", data.token);
       router.push("/admin");
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Invalid key");

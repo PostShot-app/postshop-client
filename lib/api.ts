@@ -1,7 +1,11 @@
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 async function request(path: string, options: RequestInit = {}) {
-  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  // Platform admin routes use admin_token, seller routes use token
+  const isAdmin = path.startsWith("/api/platform");
+  const token = typeof window !== "undefined"
+    ? localStorage.getItem(isAdmin ? "admin_token" : "token")
+    : null;
   const res = await fetch(`${API}${path}`, {
     ...options,
     headers: {
