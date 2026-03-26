@@ -8,8 +8,8 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-ps-dark/90 border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="PostShop" width={28} height={28} className="rounded-lg" />
-            <span className="font-heading font-bold text-lg text-white">PostShop</span>
+            <Image src="/logo.png" alt="PostMall" width={28} height={28} className="rounded-lg" />
+            <span className="font-heading font-bold text-lg text-white">PostMall</span>
           </div>
           <div className="flex items-center gap-5">
             <a href="#how" className="text-sm text-white/60 hover:text-white transition hidden sm:block">How it works</a>
@@ -195,8 +195,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              <Image src="/logo.png" alt="PostShop" width={24} height={24} className="rounded-lg" />
-              <span className="font-heading font-bold text-white/80">PostShop</span>
+              <Image src="/logo.png" alt="PostMall" width={24} height={24} className="rounded-lg" />
+              <span className="font-heading font-bold text-white/80">PostMall</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/30">
               <a href="#how" className="hover:text-white/60 transition">How it works</a>

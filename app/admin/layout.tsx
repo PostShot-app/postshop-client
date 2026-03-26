@@ -38,8 +38,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <nav className="sticky top-0 z-50 bg-ps-dark-card/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/admin" className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="PostShop" width={28} height={28} className="rounded-lg" />
-            <span className="font-heading font-bold text-lg text-white">PostShop</span>
+            <Image src="/logo.png" alt="PostMall" width={28} height={28} className="rounded-lg" />
+            <span className="font-heading font-bold text-lg text-white">PostMall</span>
             <span className="text-[10px] bg-ps-orange/10 text-ps-orange px-2 py-0.5 rounded-full font-bold tracking-wider uppercase">
               Admin
             </span>

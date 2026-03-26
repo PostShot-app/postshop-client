@@ -31,7 +31,7 @@ export default function CartPage() {
           items: items.map((i) => ({ product_id: i.product_id, quantity: i.quantity })),
           name: form.name || "Customer",
           phone: form.phone,
-          email: form.email || "buyer@postshop.com",
+          email: form.email || "buyer@postmall.com",
           address: form.address,
         }),
       });

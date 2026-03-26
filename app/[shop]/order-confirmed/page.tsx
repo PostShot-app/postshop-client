@@ -49,8 +49,8 @@ export default function OrderConfirmedPage() {
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-2 text-xs text-[#6B6B76] dark:text-white/30">
-          <Image src="/logo.png" alt="PostShop" width={16} height={16} className="rounded" />
-          Powered by PostShop
+          <Image src="/logo.png" alt="PostMall" width={16} height={16} className="rounded" />
+          Powered by PostMall
         </div>
       </div>
     </div>

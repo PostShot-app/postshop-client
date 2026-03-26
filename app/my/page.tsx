@@ -50,13 +50,13 @@ export default function SellerDashboard() {
       {/* Shop link banner */}
       <div className="bg-linear-to-br from-ps-orange to-ps-gold rounded-2xl p-6 text-white">
         <h1 className="font-heading text-2xl font-extrabold">{data.shop_name}</h1>
-        <p className="text-white/70 mt-1 text-sm">postshop.vercel.app/{data.shop_slug}</p>
+        <p className="text-white/70 mt-1 text-sm">postmall.vercel.app/{data.shop_slug}</p>
         <div className="flex gap-3 mt-4">
           <a href={`/${data.shop_slug}`} target="_blank" rel="noreferrer"
             className="bg-ps-dark-card/20 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-medium hover:bg-ps-dark-card/30 transition">
             View Shop
           </a>
-          <button onClick={() => { navigator.clipboard.writeText(`https://postshop.vercel.app/${data.shop_slug}`); }}
+          <button onClick={() => { navigator.clipboard.writeText(`https://postmall.vercel.app/${data.shop_slug}`); }}
             className="bg-ps-dark-card/10 px-4 py-2 rounded-xl text-sm font-medium hover:bg-ps-dark-card/20 transition">
             Copy Link
           </button>

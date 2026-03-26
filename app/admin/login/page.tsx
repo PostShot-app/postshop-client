@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-ps-dark flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <Image src="/logo.png" alt="PostShop" width={48} height={48} className="rounded-xl mx-auto mb-4" />
+          <Image src="/logo.png" alt="PostMall" width={48} height={48} className="rounded-xl mx-auto mb-4" />
           <h1 className="font-heading text-2xl font-extrabold text-white">Platform Admin</h1>
           <p className="text-white/40 mt-1 text-sm">Enter your admin key to continue</p>
         </div>

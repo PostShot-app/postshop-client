@@ -83,7 +83,7 @@ export default function SellerDetailPage() {
                 <span className="bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-bold px-3 py-1.5 rounded-full">Suspended</span>
               )}
             </div>
-            <p className="text-white/40 dark:text-white/30 mt-0.5 text-sm">postshop.vercel.app/{seller.shop_slug}</p>
+            <p className="text-white/40 dark:text-white/30 mt-0.5 text-sm">postmall.vercel.app/{seller.shop_slug}</p>
           </div>
         </div>
 
@@ -147,8 +147,8 @@ export default function SellerDetailPage() {
             {
               label: "Shop URL",
               value: (
-                <a href={`/postshop.vercel.app/${seller.shop_slug}`} className="text-ps-orange hover:underline" target="_blank" rel="noreferrer">
-                  postshop.vercel.app/{seller.shop_slug}
+                <a href={`/postmall.vercel.app/${seller.shop_slug}`} className="text-ps-orange hover:underline" target="_blank" rel="noreferrer">
+                  postmall.vercel.app/{seller.shop_slug}
                 </a>
               ),
             },

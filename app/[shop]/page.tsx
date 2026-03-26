@@ -99,7 +99,7 @@ export default function StorefrontPage() {
         <div className="text-center">
           <div className="text-6xl mb-4">🛍</div>
           <h1 className="font-heading text-2xl font-bold text-white">Shop not found</h1>
-          <Link href="/" className="inline-block mt-6 text-ps-orange font-semibold hover:underline">Back to PostShop</Link>
+          <Link href="/" className="inline-block mt-6 text-ps-orange font-semibold hover:underline">Back to PostMall</Link>
         </div>
       </div>
     );
@@ -312,8 +312,8 @@ export default function StorefrontPage() {
       {/* Footer */}
       <footer className="mt-16 py-8 border-t border-white/5 text-center">
         <Link href="/" className="inline-flex items-center gap-2 text-xs text-white/15 hover:text-white/30 transition">
-          <Image src="/logo.png" alt="PostShop" width={14} height={14} className="rounded opacity-40" />
-          Powered by PostShop
+          <Image src="/logo.png" alt="PostMall" width={14} height={14} className="rounded opacity-40" />
+          Powered by PostMall
         </Link>
       </footer>
     </div>

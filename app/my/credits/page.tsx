@@ -41,7 +41,7 @@ export default function CreditsPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: `seller_${seller.id}@postshop.app`,
+          email: `seller_${seller.id}@postmall.app`,
           // Use internal credit purchase endpoint instead
         }),
       });

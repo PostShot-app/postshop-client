@@ -12,7 +12,7 @@ export type CartItem = {
   quantity: number;
 };
 
-const CART_KEY = (shop: string) => `postshop_cart_${shop}`;
+const CART_KEY = (shop: string) => `postmall_cart_${shop}`;
 
 export function getCart(shop: string): CartItem[] {
   if (typeof window === "undefined") return [];
