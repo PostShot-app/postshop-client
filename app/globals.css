@@ -169,6 +169,25 @@ html {
   box-shadow: 0 4px 12px rgba(15, 20, 25, 0.08), 0 16px 40px rgba(15, 20, 25, 0.12);
 }
 
+/* Oscillating float for phone mockups */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0) rotateY(-12deg) rotateX(2deg); }
+  50% { transform: translateY(-16px) rotateY(-12deg) rotateX(2deg); }
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0) rotateY(8deg) rotateX(-2deg); }
+  50% { transform: translateY(16px) rotateY(8deg) rotateX(-2deg); }
+}
+
+.animate-float-up {
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.animate-float-down {
+  animation: floatDown 4s ease-in-out infinite;
+}
+
 /* Hide scrollbar on category tabs */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

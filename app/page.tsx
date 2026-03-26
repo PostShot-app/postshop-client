@@ -75,14 +75,22 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Phone mockup — single, clean, prominent */}
-          <div className="hidden lg:block animate-fade-up delay-3 shrink-0">
-            <div className="relative">
-              {/* Glow */}
-              <div className="absolute inset-0 -z-10 bg-ps-orange/10 rounded-full blur-[80px] scale-90" />
-              {/* Phone frame */}
-              <div className="w-64 xl:w-72 rounded-[3rem] border-8 border-[#2A2A2E] bg-[#2A2A2E] shadow-2xl overflow-hidden">
-                <img src="/screen-1.png" alt="Amberlyn managing a store on Telegram" className="w-full" />
+          {/* 3D Phone mockups — oscillating */}
+          <div className="hidden lg:flex items-center shrink-0 animate-fade-up delay-3" style={{perspective: '1200px'}}>
+            {/* Glow behind */}
+            <div className="absolute right-12 top-1/2 -translate-y-1/2 w-80 h-80 bg-ps-orange/10 rounded-full blur-[100px] -z-10" />
+
+            {/* iPhone — tilted right, oscillates up */}
+            <div className="animate-float-up" style={{transform: 'rotateY(-12deg) rotateX(2deg)'}}>
+              <div className="w-52 xl:w-56 rounded-[2.2rem] border-[6px] border-[#2A2A2E] bg-[#2A2A2E] shadow-2xl overflow-hidden ring-1 ring-white/10">
+                <img src="/screen-1.png" alt="Amberlyn on Telegram" className="w-full" />
+              </div>
+            </div>
+
+            {/* Samsung — tilted left, oscillates down (opposite phase) */}
+            <div className="-ml-8 animate-float-down" style={{transform: 'rotateY(8deg) rotateX(-2deg)'}}>
+              <div className="w-48 xl:w-52 rounded-[1.6rem] border-[5px] border-[#1A1A1E] bg-[#1A1A1E] shadow-xl overflow-hidden ring-1 ring-white/5">
+                <img src="/screen-2.png" alt="Amberlyn on WhatsApp" className="w-full" />
               </div>
             </div>
           </div>
