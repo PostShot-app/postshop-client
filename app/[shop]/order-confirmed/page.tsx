@@ -41,10 +41,10 @@ export default function OrderConfirmedPage() {
             Continue Shopping
           </Link>
           <Link
-            href="/"
+            href={`/${slug}`}
             className="w-full py-3 rounded-xl bg-ps-warm-muted dark:bg-white/5 text-[#1A1A1F] dark:text-white font-medium text-center hover:bg-ps-warm-border dark:hover:bg-white/10 transition"
           >
-            Back to PostShop
+            Back to Store
           </Link>
         </div>
 
