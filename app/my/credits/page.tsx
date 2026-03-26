@@ -68,7 +68,7 @@ export default function CreditsPage() {
   return (
     <div className="space-y-6">
       {/* Balance */}
-      <div className="bg-linear-to-br from-ps-orange to-[#FF8F5E] rounded-2xl p-6 text-white text-center">
+      <div className="bg-linear-to-br from-ps-orange to-ps-gold rounded-2xl p-6 text-white text-center">
         <p className="text-white/70 text-sm">Your credit balance</p>
         <div className="font-heading text-5xl font-extrabold mt-2">{balance}</div>
         <p className="text-white/50 text-sm mt-1">1 credit = 1 product glow-up</p>
@@ -76,25 +76,25 @@ export default function CreditsPage() {
 
       {/* Packs */}
       <div>
-        <h2 className="font-heading text-lg font-bold text-[#1A1A1F] dark:text-white mb-4">Buy Credits</h2>
+        <h2 className="font-heading text-lg font-bold text-white mb-4">Buy Credits</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {PACKS.map((pack) => (
             <div key={pack.name}
-              className={`relative bg-white dark:bg-ps-dark-card rounded-2xl border p-6 shadow-warm transition hover:shadow-warm-lg ${
-                pack.popular ? "border-ps-orange" : "border-ps-warm-border dark:border-white/5"
+              className={`relative bg-ps-dark-card rounded-2xl border p-6 shadow-warm transition hover:shadow-warm-lg ${
+                pack.popular ? "border-ps-orange" : "border-white/5"
               }`}>
               {pack.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-ps-orange text-white text-[10px] font-bold px-3 py-1 rounded-full">
                   BEST VALUE
                 </span>
               )}
-              <h3 className="font-heading text-xl font-bold text-[#1A1A1F] dark:text-white">{pack.name}</h3>
+              <h3 className="font-heading text-xl font-bold text-white">{pack.name}</h3>
               <div className="mt-3">
-                <span className="font-heading text-3xl font-extrabold text-[#1A1A1F] dark:text-white">{pack.credits}</span>
-                <span className="text-[#6B6B76] dark:text-white/40 ml-1">credits</span>
+                <span className="font-heading text-3xl font-extrabold text-white">{pack.credits}</span>
+                <span className="text-white/40 ml-1">credits</span>
               </div>
               <p className="text-lg font-bold text-ps-orange mt-2">{pack.label}</p>
-              <p className="text-xs text-[#6B6B76] dark:text-white/30 mt-1">
+              <p className="text-xs text-white/30 mt-1">
                 GHS {(pack.price / pack.credits / 100).toFixed(2)} per glow-up
               </p>
               <button onClick={() => buyPack(pack)} disabled={buying !== null}
@@ -104,7 +104,7 @@ export default function CreditsPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-center text-[#6B6B76] dark:text-white/20 mt-4">
+        <p className="text-xs text-center text-white/40 dark:text-white/20 mt-4">
           Or send &quot;buy credits&quot; to Amberlyn on Telegram for inline purchase.
         </p>
       </div>
@@ -112,13 +112,13 @@ export default function CreditsPage() {
       {/* History */}
       {history.length > 0 && (
         <div>
-          <h2 className="font-heading text-lg font-bold text-[#1A1A1F] dark:text-white mb-4">Credit History</h2>
-          <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 divide-y divide-ps-warm-border dark:divide-white/5">
+          <h2 className="font-heading text-lg font-bold text-white mb-4">Credit History</h2>
+          <div className="bg-ps-dark-card rounded-2xl border border-white/5 divide-y divide-ps-warm-border dark:divide-white/5">
             {history.map((h, i) => (
               <div key={i} className="flex items-center justify-between px-5 py-3">
                 <div>
-                  <p className="text-sm text-[#1A1A1F] dark:text-white font-medium">{h.description || h.type}</p>
-                  <p className="text-[10px] text-[#6B6B76] dark:text-white/30">
+                  <p className="text-sm text-white font-medium">{h.description || h.type}</p>
+                  <p className="text-[10px] text-white/30">
                     {new Date(h.created_at).toLocaleDateString("en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}
                   </p>
                 </div>

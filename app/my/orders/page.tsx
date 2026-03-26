@@ -38,46 +38,46 @@ export default function MyOrdersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-heading text-2xl font-extrabold text-[#1A1A1F] dark:text-white">My Orders</h1>
-        <p className="text-[#6B6B76] dark:text-white/40 text-sm mt-1">{orders.length} order{orders.length !== 1 ? "s" : ""}</p>
+        <h1 className="font-heading text-2xl font-extrabold text-white">My Orders</h1>
+        <p className="text-white/40 text-sm mt-1">{orders.length} order{orders.length !== 1 ? "s" : ""}</p>
       </div>
 
       {orders.length === 0 ? (
         <div className="text-center py-16">
           <div className="text-5xl mb-4">🛒</div>
-          <h2 className="font-heading text-xl font-bold text-[#1A1A1F] dark:text-white">No orders yet</h2>
-          <p className="text-[#6B6B76] mt-2">Share your shop link to start getting sales!</p>
+          <h2 className="font-heading text-xl font-bold text-white">No orders yet</h2>
+          <p className="text-white/40 mt-2">Share your shop link to start getting sales!</p>
         </div>
       ) : (
         <div className="space-y-3">
           {orders.map((o) => (
-            <div key={o.id} className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-5 shadow-warm">
+            <div key={o.id} className="bg-ps-dark-card rounded-2xl border border-white/5 p-5 shadow-warm">
               <div className="flex items-start justify-between">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-[#1A1A1F] dark:text-white">{o.product_name}</h3>
-                    <span className="text-xs text-[#6B6B76]">x{o.quantity}</span>
+                    <h3 className="font-semibold text-white">{o.product_name}</h3>
+                    <span className="text-xs text-white/40">x{o.quantity}</span>
                   </div>
-                  <p className="text-sm text-[#6B6B76] dark:text-white/40 mt-1">
+                  <p className="text-sm text-white/40 mt-1">
                     {o.buyer_name}{o.buyer_phone ? ` - ${o.buyer_phone}` : ""}
                   </p>
                   {o.delivery_address && (
-                    <p className="text-xs text-[#6B6B76] dark:text-white/30 mt-1">Deliver to: {o.delivery_address}</p>
+                    <p className="text-xs text-white/30 mt-1">Deliver to: {o.delivery_address}</p>
                   )}
                 </div>
                 <div className="text-right">
-                  <span className="font-heading font-bold text-[#1A1A1F] dark:text-white">
+                  <span className="font-heading font-bold text-white">
                     {o.currency} {(o.seller_revenue / 100).toFixed(2)}
                   </span>
                   <span className={`block text-[10px] font-bold mt-1 ${
-                    o.status === "paid" ? "text-green-600" : o.status === "refunded" ? "text-red-500" : "text-[#6B6B76]"
+                    o.status === "paid" ? "text-green-600" : o.status === "refunded" ? "text-red-500" : "text-white/40"
                   }`}>
                     {o.status.toUpperCase()}
                   </span>
                 </div>
               </div>
               <div className="flex items-center justify-between mt-3">
-                <p className="text-xs text-[#6B6B76] dark:text-white/20">
+                <p className="text-xs text-white/40 dark:text-white/20">
                   {new Date(o.created_at).toLocaleString()}
                 </p>
                 <a href={`/my/invoice/${o.id}`} target="_blank" rel="noreferrer"

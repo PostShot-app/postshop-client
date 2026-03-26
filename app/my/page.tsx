@@ -42,22 +42,22 @@ export default function SellerDashboard() {
   }
 
   if (!data) {
-    return <div className="text-center py-20 text-[#6B6B76]">Could not load your dashboard.</div>;
+    return <div className="text-center py-20 text-white/40">Could not load your dashboard.</div>;
   }
 
   return (
     <div className="space-y-6">
       {/* Shop link banner */}
-      <div className="bg-linear-to-br from-ps-orange to-[#FF8F5E] rounded-2xl p-6 text-white">
+      <div className="bg-linear-to-br from-ps-orange to-ps-gold rounded-2xl p-6 text-white">
         <h1 className="font-heading text-2xl font-extrabold">{data.shop_name}</h1>
         <p className="text-white/70 mt-1 text-sm">postshop.vercel.app/{data.shop_slug}</p>
         <div className="flex gap-3 mt-4">
           <a href={`/${data.shop_slug}`} target="_blank" rel="noreferrer"
-            className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-medium hover:bg-white/30 transition">
+            className="bg-ps-dark-card/20 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-medium hover:bg-ps-dark-card/30 transition">
             View Shop
           </a>
           <button onClick={() => { navigator.clipboard.writeText(`https://postshop.vercel.app/${data.shop_slug}`); }}
-            className="bg-white/10 px-4 py-2 rounded-xl text-sm font-medium hover:bg-white/20 transition">
+            className="bg-ps-dark-card/10 px-4 py-2 rounded-xl text-sm font-medium hover:bg-ps-dark-card/20 transition">
             Copy Link
           </button>
         </div>
@@ -76,20 +76,20 @@ export default function SellerDashboard() {
       {/* Quick links */}
       <div className="grid grid-cols-2 gap-4">
         <Link href="/my/products"
-          className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-6 shadow-warm hover:shadow-warm-lg transition group">
+          className="bg-ps-dark-card rounded-2xl border border-white/5 p-6 shadow-warm hover:shadow-warm-lg transition group">
           <span className="text-2xl">📦</span>
-          <h3 className="font-heading font-bold text-[#1A1A1F] dark:text-white mt-2 group-hover:text-ps-orange transition">My Products</h3>
-          <p className="text-sm text-[#6B6B76] dark:text-white/40 mt-1">View and manage your catalog</p>
+          <h3 className="font-heading font-bold text-white mt-2 group-hover:text-ps-orange transition">My Products</h3>
+          <p className="text-sm text-white/40 mt-1">View and manage your catalog</p>
         </Link>
         <Link href="/my/orders"
-          className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-6 shadow-warm hover:shadow-warm-lg transition group">
+          className="bg-ps-dark-card rounded-2xl border border-white/5 p-6 shadow-warm hover:shadow-warm-lg transition group">
           <span className="text-2xl">🛒</span>
-          <h3 className="font-heading font-bold text-[#1A1A1F] dark:text-white mt-2 group-hover:text-ps-orange transition">My Orders</h3>
-          <p className="text-sm text-[#6B6B76] dark:text-white/40 mt-1">See who bought what</p>
+          <h3 className="font-heading font-bold text-white mt-2 group-hover:text-ps-orange transition">My Orders</h3>
+          <p className="text-sm text-white/40 mt-1">See who bought what</p>
         </Link>
       </div>
 
-      <p className="text-center text-sm text-[#6B6B76] dark:text-white/30">
+      <p className="text-center text-sm text-white/30">
         Need help? Message Amberlyn on Telegram — she manages your shop for you.
       </p>
     </div>
@@ -98,12 +98,12 @@ export default function SellerDashboard() {
 
 function StatCard({ label, value, icon, action }: { label: string; value: string | number; icon: string; action?: string }) {
   return (
-    <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-5 shadow-warm hover:shadow-warm-lg transition">
+    <div className="bg-ps-dark-card rounded-2xl border border-white/5 p-5 shadow-warm hover:shadow-warm-lg transition">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-medium text-[#6B6B76] dark:text-white/40 uppercase tracking-wider">{label}</span>
+        <span className="text-xs font-medium text-white/40 uppercase tracking-wider">{label}</span>
         <span>{icon}</span>
       </div>
-      <div className="font-heading text-2xl font-extrabold text-[#1A1A1F] dark:text-white mt-2">{value}</div>
+      <div className="font-heading text-2xl font-extrabold text-white mt-2">{value}</div>
       {action && <span className="text-xs text-ps-orange font-semibold mt-1 inline-block">{action} →</span>}
     </div>
   );

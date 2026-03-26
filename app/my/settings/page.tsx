@@ -73,53 +73,53 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6 max-w-lg">
       <div>
-        <h1 className="font-heading text-2xl font-extrabold text-[#1A1A1F] dark:text-white">Shop Settings</h1>
-        <p className="text-[#6B6B76] dark:text-white/40 text-sm mt-1">Business details shown on invoices</p>
+        <h1 className="font-heading text-2xl font-extrabold text-white">Shop Settings</h1>
+        <p className="text-white/40 text-sm mt-1">Business details shown on invoices</p>
       </div>
 
-      <div className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 p-6 space-y-5">
+      <div className="bg-ps-dark-card rounded-2xl border border-white/5 p-6 space-y-5">
         {/* Logo */}
         <div>
-          <label className="block text-sm font-medium text-[#1A1A1F] dark:text-white mb-2">Shop Logo</label>
+          <label className="block text-sm font-medium text-white mb-2">Shop Logo</label>
           <div className="flex items-center gap-4">
             {form.logo_url ? (
-              <img src={form.logo_url} alt="Logo" className="w-16 h-16 rounded-xl object-contain bg-ps-warm-muted dark:bg-white/5 p-1" />
+              <img src={form.logo_url} alt="Logo" className="w-16 h-16 rounded-xl object-contain bg-ps-dark-card/5 p-1" />
             ) : (
-              <div className="w-16 h-16 rounded-xl bg-ps-warm-muted dark:bg-white/5 flex items-center justify-center text-2xl text-[#6B6B76]">📷</div>
+              <div className="w-16 h-16 rounded-xl bg-ps-dark-card/5 flex items-center justify-center text-2xl text-white/40">📷</div>
             )}
             <div>
               <label className="inline-block bg-ps-orange/10 text-ps-orange text-sm font-semibold px-4 py-2 rounded-xl cursor-pointer hover:bg-ps-orange/20 transition">
                 {uploading ? "Uploading..." : "Upload Logo"}
                 <input type="file" accept="image/*" onChange={handleLogoUpload} className="hidden" />
               </label>
-              <p className="text-[10px] text-[#6B6B76] mt-1">PNG, JPG. Max 2MB.</p>
+              <p className="text-[10px] text-white/40 mt-1">PNG, JPG. Max 2MB.</p>
             </div>
           </div>
         </div>
 
         {/* Business Email */}
         <div>
-          <label className="block text-sm font-medium text-[#1A1A1F] dark:text-white mb-1">Business Email</label>
+          <label className="block text-sm font-medium text-white mb-1">Business Email</label>
           <input value={form.business_email} onChange={(e) => setForm({ ...form, business_email: e.target.value })}
             placeholder="hello@yourshop.com"
-            className="w-full h-11 px-4 rounded-xl bg-ps-warm-muted dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/40 outline-none focus:ring-1 focus:ring-ps-orange/50" />
+            className="w-full h-11 px-4 rounded-xl bg-ps-dark-card/5 border border-white/10 text-sm text-white placeholder:text-white/40/40 outline-none focus:ring-1 focus:ring-ps-orange/50" />
         </div>
 
         {/* Business Phone */}
         <div>
-          <label className="block text-sm font-medium text-[#1A1A1F] dark:text-white mb-1">Business Phone</label>
+          <label className="block text-sm font-medium text-white mb-1">Business Phone</label>
           <input value={form.business_phone} onChange={(e) => setForm({ ...form, business_phone: e.target.value })}
             placeholder="0241234567"
-            className="w-full h-11 px-4 rounded-xl bg-ps-warm-muted dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/40 outline-none focus:ring-1 focus:ring-ps-orange/50" />
+            className="w-full h-11 px-4 rounded-xl bg-ps-dark-card/5 border border-white/10 text-sm text-white placeholder:text-white/40/40 outline-none focus:ring-1 focus:ring-ps-orange/50" />
         </div>
 
         {/* Business Address */}
         <div>
-          <label className="block text-sm font-medium text-[#1A1A1F] dark:text-white mb-1">Business Address</label>
+          <label className="block text-sm font-medium text-white mb-1">Business Address</label>
           <textarea value={form.business_address} onChange={(e) => setForm({ ...form, business_address: e.target.value })}
             placeholder="123 Market St, Accra"
             rows={2}
-            className="w-full px-4 py-3 rounded-xl bg-ps-warm-muted dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/40 outline-none focus:ring-1 focus:ring-ps-orange/50 resize-none" />
+            className="w-full px-4 py-3 rounded-xl bg-ps-dark-card/5 border border-white/10 text-sm text-white placeholder:text-white/40/40 outline-none focus:ring-1 focus:ring-ps-orange/50 resize-none" />
         </div>
 
         <button onClick={handleSave} disabled={saving}

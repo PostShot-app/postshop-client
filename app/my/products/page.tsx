@@ -99,16 +99,16 @@ export default function MyProductsPage() {
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-heading text-2xl font-extrabold text-[#1A1A1F] dark:text-white">My Products</h1>
-          <p className="text-[#6B6B76] dark:text-white/40 text-sm mt-1">{products.length} product{products.length !== 1 ? "s" : ""}</p>
+          <h1 className="font-heading text-2xl font-extrabold text-white">My Products</h1>
+          <p className="text-white/40 text-sm mt-1">{products.length} product{products.length !== 1 ? "s" : ""}</p>
         </div>
       </div>
 
       {/* Search */}
       <div className="relative max-w-md">
-        <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6B6B76]/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search products..."
-          className="w-full h-10 pl-9 pr-3 rounded-xl bg-white dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/50 focus:ring-1 focus:ring-ps-orange/50 outline-none" />
+          className="w-full h-10 pl-9 pr-3 rounded-xl bg-white dark:bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/40/50 focus:ring-1 focus:ring-ps-orange/50 outline-none" />
       </div>
 
       {/* Categories */}
@@ -117,7 +117,7 @@ export default function MyProductsPage() {
           {categories.map((cat) => (
             <button key={cat} onClick={() => setActiveCategory(cat)}
               className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-medium transition ${
-                activeCategory === cat ? "bg-ps-orange text-white" : "bg-white dark:bg-white/5 text-[#6B6B76] hover:bg-ps-orange/10"
+                activeCategory === cat ? "bg-ps-orange text-white" : "bg-white dark:bg-white/5 text-white/40 hover:bg-ps-orange/10"
               }`}>
               {cat}
             </button>
@@ -128,18 +128,18 @@ export default function MyProductsPage() {
       {filtered.length === 0 ? (
         <div className="text-center py-16">
           <div className="text-5xl mb-4">{search ? "🔍" : "📸"}</div>
-          <h2 className="font-heading text-xl font-bold text-[#1A1A1F] dark:text-white">
+          <h2 className="font-heading text-xl font-bold text-white">
             {search ? "No matches" : "No products yet"}
           </h2>
-          <p className="text-[#6B6B76] mt-2">
+          <p className="text-white/40 mt-2">
             {search ? `Nothing matches "${search}"` : "Send a product photo to Amberlyn on Telegram!"}
           </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((p) => (
-            <div key={p.id} className="bg-white dark:bg-ps-dark-card rounded-2xl border border-ps-warm-border dark:border-white/5 overflow-hidden shadow-warm">
-              <div className="aspect-square bg-ps-warm-muted dark:bg-white/5 relative">
+            <div key={p.id} className="bg-ps-dark-card rounded-2xl border border-white/5 overflow-hidden shadow-warm">
+              <div className="aspect-square bg-white/5 relative">
                 <img src={p.glowup_image_url || p.original_image_url} alt={p.name} className="w-full h-full object-cover" />
                 <button onClick={() => togglePublish(p)}
                   className={`absolute top-3 right-3 text-[10px] font-bold px-2.5 py-1 rounded-full cursor-pointer transition ${
@@ -150,12 +150,12 @@ export default function MyProductsPage() {
               </div>
 
               <div className="p-4">
-                <h3 className="font-semibold text-[#1A1A1F] dark:text-white text-sm">{p.name}</h3>
-                {p.brand && <span className="text-[10px] text-[#6B6B76] dark:text-white/30">{p.brand}</span>}
-                {p.category && <p className="text-[10px] text-[#6B6B76]/60 dark:text-white/20 mt-0.5">{p.category}</p>}
+                <h3 className="font-semibold text-white text-sm">{p.name}</h3>
+                {p.brand && <span className="text-[10px] text-white/30">{p.brand}</span>}
+                {p.category && <p className="text-[10px] text-white/40/60 dark:text-white/20 mt-0.5">{p.category}</p>}
 
                 <div className="flex items-center justify-between mt-1">
-                  <span className="text-xs text-[#6B6B76] dark:text-white/30">
+                  <span className="text-xs text-white/30">
                     {p.stock === null ? "∞ Unlimited stock" : p.stock === 0 ? "⚠ Out of stock" : `📦 ${p.stock} in stock`}
                   </span>
                 </div>
@@ -164,14 +164,14 @@ export default function MyProductsPage() {
                   <div className="mt-3 space-y-2">
                     <div className="flex gap-2">
                       <div className="flex-1">
-                        <label className="text-[10px] text-[#6B6B76] uppercase">Price (GHS)</label>
+                        <label className="text-[10px] text-white/40 uppercase">Price (GHS)</label>
                         <input value={editPrice} onChange={(e) => setEditPrice(e.target.value)}
-                          className="w-full h-9 px-2 rounded-lg bg-ps-warm-muted dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white" />
+                          className="w-full h-9 px-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white" />
                       </div>
                       <div className="flex-1">
-                        <label className="text-[10px] text-[#6B6B76] uppercase">Stock</label>
+                        <label className="text-[10px] text-white/40 uppercase">Stock</label>
                         <input value={editStock} onChange={(e) => setEditStock(e.target.value)} placeholder="∞"
-                          className="w-full h-9 px-2 rounded-lg bg-ps-warm-muted dark:bg-white/5 border border-ps-warm-border dark:border-white/10 text-sm text-[#1A1A1F] dark:text-white placeholder:text-[#6B6B76]/40" />
+                          className="w-full h-9 px-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/40/40" />
                       </div>
                     </div>
                     <div className="flex gap-2">
@@ -180,14 +180,14 @@ export default function MyProductsPage() {
                         {saving ? "..." : "Save"}
                       </button>
                       <button onClick={() => setEditing(null)}
-                        className="h-8 px-3 text-xs text-[#6B6B76] border border-ps-warm-border dark:border-white/10 rounded-lg hover:bg-ps-warm-muted dark:hover:bg-white/5 transition">
+                        className="h-8 px-3 text-xs text-white/40 border border-white/10 rounded-lg hover:bg-ps-warm-muted dark:hover:bg-white/5 transition">
                         Cancel
                       </button>
                     </div>
                   </div>
                 ) : (
                   <div className="flex items-center justify-between mt-3">
-                    <span className="font-heading font-bold text-[#1A1A1F] dark:text-white">
+                    <span className="font-heading font-bold text-white">
                       {p.price ? `${p.currency} ${(p.price / 100).toFixed(2)}` : "No price"}
                     </span>
                     <button onClick={() => startEdit(p)}
