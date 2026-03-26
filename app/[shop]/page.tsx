@@ -7,7 +7,7 @@ import Link from "next/link";
 import { shopInfo, shopProducts } from "@/lib/api";
 import { addToCart, getCart, cartTotal } from "@/lib/cart";
 
-type Shop = { shop_name: string; slug: string };
+type Shop = { shop_name: string; slug: string; logo_url?: string; is_verified?: boolean };
 type Product = {
   id: number;
   name: string;
@@ -111,10 +111,17 @@ export default function StorefrontPage() {
       <header className="sticky top-0 z-50 bg-ps-dark/90 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-4">
           <div className="flex items-center gap-2.5 shrink-0">
-            <div className="w-8 h-8 bg-linear-to-br from-ps-orange to-ps-gold rounded-lg flex items-center justify-center">
-              <span className="text-sm font-bold text-white">{shop.shop_name.charAt(0).toUpperCase()}</span>
-            </div>
-            <span className="font-heading font-bold text-white hidden sm:block">{shop.shop_name}</span>
+            {shop.logo_url ? (
+              <img src={shop.logo_url} alt={shop.shop_name} className="w-8 h-8 rounded-lg object-contain" />
+            ) : (
+              <div className="w-8 h-8 bg-linear-to-br from-ps-orange to-ps-gold rounded-lg flex items-center justify-center">
+                <span className="text-sm font-bold text-white">{shop.shop_name.charAt(0).toUpperCase()}</span>
+              </div>
+            )}
+            <span className="font-heading font-bold text-white hidden sm:block">
+              {shop.shop_name}
+              {shop.is_verified && <span className="ml-1 text-xs" title="Verified">✓</span>}
+            </span>
           </div>
 
           {/* Search */}
