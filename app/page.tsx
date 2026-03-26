@@ -75,24 +75,14 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Device mockups — iPhone + Android */}
-          <div className="hidden lg:flex items-end gap-4 animate-fade-up delay-3 shrink-0 -mr-8">
-            {/* Glow behind phones */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-ps-orange/8 rounded-full blur-[100px]" />
-
-            {/* iPhone frame */}
-            <div className="relative z-10 w-56 xl:w-60">
-              <div className="rounded-[2.5rem] border-[6px] border-[#2A2A2E] bg-[#2A2A2E] shadow-2xl overflow-hidden">
-                {/* Notch */}
-                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#2A2A2E] rounded-b-2xl z-20" />
-                <img src="/screen-1.png" alt="Amberlyn on iPhone" className="w-full rounded-[2rem]" />
-              </div>
-            </div>
-
-            {/* Android frame — slightly behind and offset */}
-            <div className="relative -ml-12 mb-8 w-52 xl:w-56 opacity-90">
-              <div className="rounded-[1.8rem] border-[5px] border-[#1E1E22] bg-[#1E1E22] shadow-xl overflow-hidden">
-                <img src="/screen-2.png" alt="Amberlyn on Android" className="w-full rounded-[1.5rem]" />
+          {/* Phone mockup — single, clean, prominent */}
+          <div className="hidden lg:block animate-fade-up delay-3 shrink-0">
+            <div className="relative">
+              {/* Glow */}
+              <div className="absolute inset-0 -z-10 bg-ps-orange/10 rounded-full blur-[80px] scale-90" />
+              {/* Phone frame */}
+              <div className="w-64 xl:w-72 rounded-[3rem] border-8 border-[#2A2A2E] bg-[#2A2A2E] shadow-2xl overflow-hidden">
+                <img src="/screen-1.png" alt="Amberlyn managing a store on Telegram" className="w-full" />
               </div>
             </div>
           </div>
@@ -229,6 +219,8 @@ export default function Home() {
               <a href="#how" className="hover:text-white/60 transition">How it works</a>
               <a href="#features" className="hover:text-white/60 transition">Features</a>
               <a href="#pricing" className="hover:text-white/60 transition">Pricing</a>
+              <Link href="/terms" className="hover:text-white/60 transition">Terms</Link>
+              <Link href="/privacy" className="hover:text-white/60 transition">Privacy</Link>
             </div>
             <span className="text-sm text-white/20">Agentic commerce. Built in Africa.</span>
           </div>
