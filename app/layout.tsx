@@ -20,13 +20,35 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PostMall — AI Product Photography",
+  title: "PostMall — Your AI Store Manager",
   description:
-    "Turn phone photos into professional product images. Send a photo on WhatsApp or Telegram, get back a stunning lifestyle shot + ad copy. Your free online shop is created automatically.",
+    "Meet Amberlyn — an AI agent that runs your entire online store. Send product photos on WhatsApp or Telegram, she handles the rest. Products, pricing, orders, invoices, checkout. Free shop included.",
+  keywords: ["AI store manager", "online shop", "WhatsApp selling", "Telegram shop", "product photography AI", "e-commerce Africa", "MoMo payments", "agentic commerce"],
   openGraph: {
-    title: "PostMall — AI Product Photography",
-    description: "Turn phone photos into professional product images.",
+    title: "PostMall — Your AI Store Manager",
+    description: "She runs your shop. You run your life. Meet Amberlyn, your AI agent that manages products, orders, invoices & checkout — all from WhatsApp or Telegram.",
     type: "website",
+    url: "https://postmall.vercel.app",
+    siteName: "PostMall",
+    images: [
+      {
+        url: "https://postmall.vercel.app/og.png",
+        width: 1200,
+        height: 630,
+        alt: "PostMall — Your AI Store Manager",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PostMall — Your AI Store Manager",
+    description: "She runs your shop. You run your life. An AI agent that manages your entire online store from WhatsApp.",
+    images: ["https://postmall.vercel.app/og.png"],
+  },
+  metadataBase: new URL("https://postmall.vercel.app"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 

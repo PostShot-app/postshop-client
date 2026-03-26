@@ -4,36 +4,38 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-ps-dark">
-      {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-ps-dark/90 border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="PostMall" width={28} height={28} className="rounded-lg" />
-            <span className="font-heading font-bold text-lg text-white">PostMall</span>
+      {/* Nav — crisp floating bar */}
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl">
+        <div className="flex items-center justify-between h-12 px-5 rounded-2xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.06]">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <Image src="/logo.png" alt="PostMall" width={22} height={22} className="rounded-md" />
+              <span className="font-heading font-bold text-white text-sm">PostMall</span>
+            </div>
+            <div className="hidden sm:flex items-center gap-1">
+              <a href="#how" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Product</a>
+              <a href="#pricing" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Pricing</a>
+              <a href="#features" className="text-[13px] text-white/40 hover:text-white px-3 py-1 rounded-lg hover:bg-white/5 transition">Features</a>
+            </div>
           </div>
-          <div className="flex items-center gap-5">
-            <a href="#how" className="text-sm text-white/60 hover:text-white transition hidden sm:block">How it works</a>
-            <a href="#features" className="text-sm text-white/60 hover:text-white transition hidden sm:block">Features</a>
-            <a href="#pricing" className="text-sm text-white/60 hover:text-white transition hidden sm:block">Pricing</a>
-            <a
-              href="https://t.me/postshotai_bot"
-              className="bg-ps-orange text-white text-sm px-5 py-2 rounded-full font-semibold hover:bg-ps-orange-dark transition glow-orange"
-            >
+          <div className="flex items-center gap-2">
+            <a href="https://t.me/postshotai_bot"
+              className="bg-ps-orange text-white text-xs px-4 py-1.5 rounded-xl font-semibold hover:bg-ps-orange-dark transition">
               Meet Amberlyn
             </a>
           </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-24 overflow-hidden grain">
+      {/* Hero — fits in viewport with floating social proof */}
+      <section className="relative h-screen flex flex-col justify-center overflow-hidden grain">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-ps-orange/15 rounded-full blur-[128px]" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-ps-gold/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-ps-gold/10 rounded-full blur-[100px]" />
 
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
             <div className="animate-fade-up">
-              <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-ps-gold text-xs font-semibold px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-ps-gold text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 bg-ps-gold rounded-full animate-pulse" />
                 Your AI Store Manager
               </span>
@@ -47,47 +49,52 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="animate-fade-up delay-2 text-lg sm:text-xl text-white/50 mt-7 leading-relaxed max-w-xl">
+            <p className="animate-fade-up delay-2 text-lg sm:text-xl text-white/50 mt-6 leading-relaxed max-w-xl">
               Meet Amberlyn — an AI agent that manages your entire online store.
-              Products, pricing, orders, invoices, customer notifications.
-              Just chat with her on WhatsApp or Telegram.
+              Products, pricing, orders, invoices, checkout. Just chat.
             </p>
 
-            <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-4 mt-10">
+            <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-3 mt-8">
               <a
                 href="https://t.me/postshotai_bot"
-                className="group relative bg-ps-orange text-white px-8 py-4 rounded-full text-base font-bold hover:bg-ps-orange-dark transition-all glow-orange flex items-center justify-center gap-2"
+                className="group relative bg-ps-orange text-white px-7 py-3.5 rounded-2xl text-sm font-bold hover:bg-ps-orange-dark transition-all glow-orange flex items-center justify-center gap-2"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.65-2.89 7.99-3.45 3.81-1.6 4.6-1.87 5.12-1.88.11 0 .37.03.53.17.14.12.18.28.2.45-.01.06.01.24 0 .38z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.65-2.89 7.99-3.45 3.81-1.6 4.6-1.87 5.12-1.88.11 0 .37.03.53.17.14.12.18.28.2.45-.01.06.01.24 0 .38z"/></svg>
                 Start Free on Telegram
                 <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-ps-dark animate-pulse" />
               </a>
               <a
                 href="#how"
-                className="border border-white/15 text-white/80 px-8 py-4 rounded-full text-base font-medium hover:bg-white/5 hover:border-white/25 transition-all flex items-center justify-center gap-2"
+                className="border border-white/10 text-white/70 px-7 py-3.5 rounded-2xl text-sm font-medium hover:bg-white/5 hover:border-white/20 transition-all flex items-center justify-center gap-2"
               >
                 See How It Works
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
               </a>
             </div>
 
-            <p className="animate-fade-up delay-4 text-sm text-white/30 mt-5">
-              Free shop. Free agent. No downloads. No tech skills.
+            <p className="animate-fade-up delay-4 text-xs text-white/25 mt-4">
+              Free shop. Free agent. No downloads. No tech skills needed.
             </p>
           </div>
         </div>
-      </section>
 
-      {/* Social proof strip */}
-      <div className="border-t border-white/5 py-6">
-        <div className="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center gap-8 text-sm text-white/30">
-          <span>Sellers across Ghana, Nigeria &amp; Kenya</span>
-          <span className="hidden sm:inline">|</span>
-          <span>WhatsApp + Telegram</span>
-          <span className="hidden sm:inline">|</span>
-          <span>MoMo, Card &amp; Bank payments</span>
+        {/* Floating social proof bar — embossed, sits at bottom of hero */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-3xl animate-fade-up delay-5">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 px-6 py-3 rounded-2xl bg-white/[0.02] border border-white/[0.04] backdrop-blur-sm">
+            <span className="text-[11px] sm:text-xs font-medium tracking-wide uppercase" style={{color: 'rgba(255,255,255,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.05)'}}>
+              Ghana &middot; Nigeria &middot; Kenya
+            </span>
+            <span className="w-px h-3 bg-white/[0.06]" />
+            <span className="text-[11px] sm:text-xs font-medium tracking-wide uppercase" style={{color: 'rgba(255,255,255,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.05)'}}>
+              WhatsApp + Telegram
+            </span>
+            <span className="w-px h-3 bg-white/[0.06] hidden sm:block" />
+            <span className="text-[11px] sm:text-xs font-medium tracking-wide uppercase hidden sm:block" style={{color: 'rgba(255,255,255,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.05)'}}>
+              MoMo &middot; Card &middot; Bank
+            </span>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* How It Works */}
       <section id="how" className="py-24">
