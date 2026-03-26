@@ -154,6 +154,12 @@ export default function MyProductsPage() {
                 {p.brand && <span className="text-[10px] text-[#6B6B76] dark:text-white/30">{p.brand}</span>}
                 {p.category && <p className="text-[10px] text-[#6B6B76]/60 dark:text-white/20 mt-0.5">{p.category}</p>}
 
+                <div className="flex items-center justify-between mt-1">
+                  <span className="text-xs text-[#6B6B76] dark:text-white/30">
+                    {p.stock === null ? "∞ Unlimited stock" : p.stock === 0 ? "⚠ Out of stock" : `📦 ${p.stock} in stock`}
+                  </span>
+                </div>
+
                 {editing === p.id ? (
                   <div className="mt-3 space-y-2">
                     <div className="flex gap-2">

@@ -260,7 +260,16 @@ export default function StorefrontPage() {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center bg-white/5 rounded-xl border border-white/10">
                       <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-10 h-10 text-white/50 hover:text-white text-lg cursor-pointer">−</button>
-                      <span className="w-10 text-center font-bold text-white">{qty}</span>
+                      <input
+                        type="number"
+                        value={qty}
+                        onChange={(e) => {
+                          const v = parseInt(e.target.value) || 1;
+                          const max = selectedProduct.stock !== null ? selectedProduct.stock : 999;
+                          setQty(Math.max(1, Math.min(v, max)));
+                        }}
+                        className="w-12 text-center font-bold text-white bg-transparent outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      />
                       <button onClick={() => {
                         if (selectedProduct.stock !== null && qty >= selectedProduct.stock) return;
                         setQty(qty + 1);
