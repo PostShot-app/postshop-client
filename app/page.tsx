@@ -75,23 +75,19 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 3D Phone mockups — oscillating */}
-          <div className="hidden lg:flex items-center shrink-0 animate-fade-up delay-3" style={{perspective: '1200px'}}>
+          {/* 3D Phone mockups — real renders, oscillating */}
+          <div className="hidden lg:flex items-center shrink-0 animate-fade-up delay-3">
             {/* Glow behind */}
-            <div className="absolute right-12 top-1/2 -translate-y-1/2 w-80 h-80 bg-ps-orange/10 rounded-full blur-[100px] -z-10" />
+            <div className="absolute right-16 top-1/2 -translate-y-1/2 w-80 h-96 bg-ps-orange/8 rounded-full blur-[100px] -z-10" />
 
-            {/* iPhone — tilted right, oscillates up */}
-            <div className="animate-float-up" style={{transform: 'rotateY(-12deg) rotateX(2deg)'}}>
-              <div className="w-52 xl:w-56 rounded-[2.2rem] border-[6px] border-[#2A2A2E] bg-[#2A2A2E] shadow-2xl overflow-hidden ring-1 ring-white/10">
-                <img src="/screen-1.png" alt="Amberlyn on Telegram" className="w-full" />
-              </div>
+            {/* iPhone — oscillates up */}
+            <div className="animate-float-up z-10">
+              <img src="/phone-1.png" alt="Amberlyn on iPhone" className="w-52 xl:w-60 drop-shadow-2xl" />
             </div>
 
-            {/* Samsung — tilted left, oscillates down (opposite phase) */}
-            <div className="-ml-8 animate-float-down" style={{transform: 'rotateY(8deg) rotateX(-2deg)'}}>
-              <div className="w-48 xl:w-52 rounded-[1.6rem] border-[5px] border-[#1A1A1E] bg-[#1A1A1E] shadow-xl overflow-hidden ring-1 ring-white/5">
-                <img src="/screen-2.png" alt="Amberlyn on WhatsApp" className="w-full" />
-              </div>
+            {/* Samsung — oscillates down (opposite phase) */}
+            <div className="-ml-10 animate-float-down">
+              <img src="/phone-2.png" alt="Amberlyn on Android" className="w-48 xl:w-56 drop-shadow-xl" />
             </div>
           </div>
         </div>

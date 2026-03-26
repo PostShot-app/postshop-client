@@ -171,21 +171,21 @@ html {
 
 /* Oscillating float for phone mockups */
 @keyframes floatUp {
-  0%, 100% { transform: translateY(0) rotateY(-12deg) rotateX(2deg); }
-  50% { transform: translateY(-16px) rotateY(-12deg) rotateX(2deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
 @keyframes floatDown {
-  0%, 100% { transform: translateY(0) rotateY(8deg) rotateX(-2deg); }
-  50% { transform: translateY(16px) rotateY(8deg) rotateX(-2deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
 }
 
 .animate-float-up {
-  animation: floatUp 4s ease-in-out infinite;
+  animation: floatUp 5s ease-in-out infinite;
 }
 
 .animate-float-down {
-  animation: floatDown 4s ease-in-out infinite;
+  animation: floatDown 5s ease-in-out infinite;
 }
 
 /* Hide scrollbar on category tabs */
