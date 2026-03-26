@@ -30,8 +30,8 @@ export default function Home() {
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-ps-orange/15 rounded-full blur-[128px]" />
         <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-ps-gold/10 rounded-full blur-[100px]" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl">
+        <div className="relative max-w-6xl mx-auto px-6 flex items-center justify-between">
+          <div className="max-w-xl lg:max-w-2xl">
             <div className="animate-fade-up">
               <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-ps-gold text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 bg-ps-gold rounded-full animate-pulse" />
@@ -39,7 +39,7 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="animate-fade-up delay-1 font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
+            <h1 className="animate-fade-up delay-1 font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] tracking-tight">
               She runs your shop.
               <br />
               <span className="bg-linear-to-r from-ps-orange to-ps-gold bg-clip-text text-transparent animate-shimmer">
@@ -47,12 +47,12 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="animate-fade-up delay-2 text-lg sm:text-xl text-white/50 mt-6 leading-relaxed max-w-xl">
+            <p className="animate-fade-up delay-2 text-base sm:text-lg text-white/50 mt-5 leading-relaxed max-w-md">
               Meet Amberlyn — an AI agent that manages your entire online store.
               Products, pricing, orders, invoices, checkout. Just chat.
             </p>
 
-            <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-3 mt-8">
+            <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-3 mt-7">
               <a
                 href="https://t.me/postshotai_bot"
                 className="group relative bg-ps-orange text-white px-7 py-3.5 rounded-2xl text-sm font-bold hover:bg-ps-orange-dark transition-all glow-orange flex items-center justify-center gap-2"
@@ -73,6 +73,19 @@ export default function Home() {
             <p className="animate-fade-up delay-4 text-xs text-white/25 mt-4">
               Free shop. Free agent. No downloads. No tech skills needed.
             </p>
+          </div>
+
+          {/* iPhone mockup — right side */}
+          <div className="hidden lg:block animate-fade-up delay-3 shrink-0">
+            <div className="relative">
+              <img
+                src="/hero-iphone.png"
+                alt="Amberlyn AI assistant on iPhone"
+                className="w-72 xl:w-80 drop-shadow-2xl"
+              />
+              {/* Glow behind the phone */}
+              <div className="absolute inset-0 -z-10 bg-ps-orange/10 rounded-full blur-[80px] scale-75" />
+            </div>
           </div>
         </div>
 
